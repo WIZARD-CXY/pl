@@ -32,9 +32,12 @@ int minDepth(TreeNode *root) {
     if(root==NULL){
         return 0;
     }
-    dfs(root,0);
     
-    return minD;
+    int leftDepth=minDepth(root->left);
+    int rightDepth=minDepth(root->right);
+
+    return min(leftDepth,rightDepth)+1;
+    
 }
 
 
@@ -43,12 +46,6 @@ int main(){
     TreeNode *root= new TreeNode(1);
     root->left=new TreeNode(2);
     root->right=NULL;
-    minDepth(root);
-
-
-    cout<<minD<<endl;
-
-
-
+    cout<<minDepth(root)<<endl;
 
 }

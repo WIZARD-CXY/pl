@@ -1,6 +1,6 @@
 class Solution {
 public:
-    bool min=0x7ffffff;
+    int min=0x7ffffff;
     int minDepth(TreeNode *root) {
         if(root==NULL){
             return 0;
