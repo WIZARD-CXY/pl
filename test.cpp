@@ -2,42 +2,37 @@
 #include<string>
 #include<vector>
 #include<sstream>
+#include<algorithm>
+#include<limits.h>
 using namespace std;
 
-int char2int(char c){
-        switch(c)
-        {
-            case 'I': return 1;
-            case 'V': return 5;
-            case 'X': return 10;
-            case 'L': return 50;
-            case 'C': return 100;
-            case 'D': return 500;
-            case 'M': return 1000;
-            default : return 0;
-        }
-    }
-    int romanToInt(string s) {
+int reverse(int x) {
         
-        if(s.empty()){
-            return 0;
+        int sign=1;
+        if(x<0){
+            sign=-1;
+            x=-x;
         }
-        // from rear to front
-        int sum=char2int(s[s.size()-1]);
+        long long res=0;
         
-        for(int i=s.size()-1; i>=1; i--){
-            if(char2int(s[i]) > char2int(s[i-1])){
-                sum-=char2int(s[i-1]);
-            }else{
-                sum+=char2int(s[i-1]);
+        while(x){
+
+            res=res*10+x%10;
+            if(res*sign> INT_MAX || res*sign < INT_MIN){
+                return 0;
             }
+            
+            x/=10;
+            
         }
-        return sum;
+        
+        
+        return (int)res*sign;
         
     }
 
 
 int main(){
-    cout<<romanToInt("XIV")<<endl;
+    cout<<reverse(1534236469)<<endl;
 
 }
