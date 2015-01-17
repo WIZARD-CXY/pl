@@ -1,30 +1,6 @@
-#include<iostream>
-#include<string>
-
-#include<vector>
-
-#include<sstream>
-#include<algorithm>
-#include<limits.h>
-#include<stack>
-using namespace std;
-
-int stoi(string s){
-    int res=0;
-    int sign=1;
-
-    for(int i=0; i<s.size(); i++){
-        if(i==0 && s[i] == '-'){
-            sign=-1;
-        }else{
-            res=res*10+s[i]-'0';
-        }
-
-    }
-    return sign*res;
-}
-
-int evalRPN(vector<string> &tokens) {
+class Solution {
+public:
+    int evalRPN(vector<string> &tokens) {
         stack<int> ss;
         int temp1,temp2;
         
@@ -62,14 +38,4 @@ int evalRPN(vector<string> &tokens) {
         return ss.top();
         
     }
-
-
-int main(){
-    std::vector<string> v;
-    v.push_back("6");
-    v.push_back("3");
-    v.push_back("/");
-    cout<<evalRPN(v)<<endl;
-    cout<<stoi("012345")<<endl;
-
-}
+};
