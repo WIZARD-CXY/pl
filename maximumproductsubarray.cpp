@@ -10,13 +10,11 @@ public:
         
         for(int i=1; i<n; i++){
             int tempmax=A[i]*maxtemp;
-            int tempmin=mintemp=A[i]*mintemp;
+            int tempmin=A[i]*mintemp;
             
             maxtemp=max(A[i],max(tempmax,tempmin));
             mintemp=min(A[i],min(tempmax,tempmin));
-            
-            
-            
+            	
             res=max(maxtemp,res);
         }
         return res;
