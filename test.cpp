@@ -7,37 +7,28 @@
 #include<stack>
 using namespace std;
 
-bool cmp1(const string &a, const string &b){
-    return (a+b) > (b+a);
-}
-
-string largestNumber(vector<int> &num) {
-    vector<string> temp;
-
-    for(int i=0; i<num.size(); i++){
-        temp.push_back(to_string(num[i]));
+int divide(int dividend, int divisor) {
+    if(dividend==INT_MIN && divisor ==-1) return INT_MAX;
+    long long a = labs(dividend);
+    long long b = labs(divisor);
+    long long res = 0;
+    while(a >= b)
+    {
+        long long c = b;
+        for(int i = 0; a >= c; i++, c <<=1)
+        {
+            a -= c;
+            res += 1<<i;
+        }
     }
-    
-    sort(temp.begin(),temp.end(),cmp1);
-    
-    string res="";
-    
-    for(int i=0; i<temp.size(); i++){
-        res+=temp[i];
-    }
-    
-    return res;
-        
+
+    return ((dividend ^ divisor) >> 31) ? (-res) : (res);
 }
 
 
 int main(){
-    std::vector<int> v;
-    v.push_back(3);
-    v.push_back(30);
-    v.push_back(34);
-    v.push_back(5);
-    v.push_back(9);
-    cout<<largestNumber(v)<<endl;
+    cout<<labs(INT_MIN)<<endl;
+    
+    cout<<divide(INT_MIN,-1)<<endl;
 
 }
