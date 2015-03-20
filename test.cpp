@@ -7,37 +7,33 @@
 #include<stack>
 using namespace std;
 
-bool cmp1(const string &a, const string &b){
-    return (a+b) > (b+a);
+int gcd(int a, int b){
+        return b==0?a:gcd(b,a%b);
 }
-
-string largestNumber(vector<int> &num) {
-    vector<string> temp;
-
-    for(int i=0; i<num.size(); i++){
-        temp.push_back(to_string(num[i]));
-    }
     
-    sort(temp.begin(),temp.end(),cmp1);
-    
-    string res="";
-    
-    for(int i=0; i<temp.size(); i++){
-        res+=temp[i];
-    }
-    
-    return res;
+void rotate(int nums[], int n, int k) {
+    k=k%n;
         
+    if(k==0){
+        return;
+    }
+    
+    while(k--){
+        int temp = nums[n-1];
+        
+        for(int i=0; i<n-1; i++){
+            nums[n-1-i]=nums[n-2-i];
+        }
+        nums[0]=temp;
+    }
 }
 
 
 int main(){
-    std::vector<int> v;
-    v.push_back(3);
-    v.push_back(30);
-    v.push_back(34);
-    v.push_back(5);
-    v.push_back(9);
-    cout<<largestNumber(v)<<endl;
+    int nums[]={1,2,3,4,5,6,7};
+    rotate(nums,7,7);
+    for(int i=0; i<7; i++){
+        cout<<nums[i]<<" ";
+    }
 
 }
