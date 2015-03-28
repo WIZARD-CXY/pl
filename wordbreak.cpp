@@ -7,7 +7,6 @@ public:
         memset(res, 0, sizeof(res));
         
         res[0]=1;
-
         
         for(int i=1; i<=s.size(); i++){
             for(int j=i-1; j>=0; j--){
