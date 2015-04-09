@@ -1,3 +1,4 @@
+//reference http://m.blog.csdn.net/blog/maverick1990/28275973http://m.blog.csdn.net/blog/maverick1990/28275973
 class Solution {
 public:
     int n,m;
@@ -12,31 +13,31 @@ public:
             pair<int,int> temp=qu.front();
             qu.pop();
             
-            int p=temp.first;
-            int q=temp.second;
+            x=temp.first;
+            y=temp.second;
             
-            if(p>0 && board[x][p-1]=='O'){
-                qu.push(make_pair(x,p-1));
-                board[x][p-1]='Y';
+            if(x>0 && board[x-1][y]=='O'){
+                qu.push(make_pair(x-1,y));
+                board[x-1][y]='Y';
             }
-            if(p<m-1 && board[x][p+1]=='O'){
-                qu.push(make_pair(x,p+1));
-                board[x][p+1]='Y';
+            if(x<n-1 && board[x+1][y]=='O'){
+                qu.push(make_pair(x+1,y));
+                board[x+1][y]='Y';
             }
-            if(q>0 && board[q-1][y]=='O'){
-                qu.push(make_pair(q-1,y));
-                board[q-1][y]='Y';
+            if(y>0 && board[x][y-1]=='O'){
+                qu.push(make_pair(x,y-1));
+                board[x][y-1]='Y';
             }
-            if(q<n-1 && board[q+1][y]=='O'){
-                qu.push(make_pair(q+1,y));
-                board[q+1][y]='Y';
+            if(y<n-1 && board[x][y+1]=='O'){
+                qu.push(make_pair(x,y+1));
+                board[x][y+1]='Y';
             }
         }
         
     }
     void change(vector<vector<char> > &board, char originc, char newc){
-        for(int i=0; i<m; i++){
-            for(int j=0; j<n; j++){
+        for(int i=0; i<n; i++){
+            for(int j=0; j<m; j++){
                 if(board[i][j]==originc){
                     board[i][j]=newc;
                 }
@@ -68,8 +69,8 @@ public:
             if(board[i][0]=='O'){
                 bfs(board,i,0);
             }
-            if(board[i][n-1]=='O'){
-                bfs(board,i,n-1);
+            if(board[i][m-1]=='O'){
+                bfs(board,i,m-1);
             }
         }
         
