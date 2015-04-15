@@ -11,10 +11,12 @@ public:
         queue<string> path;
         path.push(start);
         int level=1;
+        int count=1;
         
         while(!path.empty() && dict.size()>0){
             string temp = path.front();
             path.pop();
+            count--;
             for(int i=0; i<temp.size(); i++){
                 for(int j='a'; j<='z'; j++){
                    if(temp[i]==j){
@@ -31,6 +33,10 @@ public:
                    }
                 }
                 
+            }
+            if(count==0){
+                count=path.size();
+                level++;
             }
             
         }
