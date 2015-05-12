@@ -7,41 +7,64 @@
 #include<stack>
 using namespace std;
 
-int minimumTotal(vector<vector<int> > &triangle) {
-    if(triangle.size()==0){
-        return 0;
+int find_kth(vector<int> nums1, int m, vector<int> nums2, int n, int k){
+    //always let nums1's size smaller or equal to nums2
+    if(m>n){
+        return find_kth(nums2,n,nums1,m,k);
     }
     
-    int layer=triangle.size();
-    int largestSize=triangle[triangle.size()-1].size();
-    
-    int d[layer][largestSize];
-    for(int i=0; i<largestSize; i++){
-        d[layer-1][i]=triangle[layer-1][i];
+    if(m==0){
+        return nums2[k-1];
+    }
+    if(k==1){
+        return min(nums1[0],nums2[0]);
     }
     
-    for(int i=layer-2; i>=0;i++){
-        for(int j=0; j<triangle[i].size(); j++){
-            d[i][j]=min(d[i+1][j],d[i+1][j+1])+triangle[i][j];
+    //divide k into tow parts
+    
+    int mid1=min(k/2,m),mid2=k-mid1;
+    
+    vector<int>::iterator iter;
+    if(nums1[mid1-1]<nums2[mid2-1]){
+        iter=nums1.begin();
+        for(int i=0; i<mid1; i++){
+            iter++;
         }
+        nums1.assign(iter,nums1.end());
+        return find_kth(nums1,nums1.size(),nums2,nums2.size(),k-mid1);
+    }else if (nums1[mid1-1]>nums2[mid2-1]){
+        iter=nums2.begin();
+        for(int i=0; i<mid2;i++){
+            iter++;
+        }
+        nums2.assign(iter,nums2.end());
+        return find_kth(nums1,nums1.size(),nums2,nums2.size(),k-mid2);
+        
+    }else{
+        return nums1[mid1-1];
     }
-    
-    return d[0][0];
 }
 
+double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+    int m=nums1.size();
+    int n=nums2.size();
+    
+    int total = m+n;
+    
+    if(total & 0x1){
+        return find_kth(nums1,m,nums2,n,total/2+1);
+    }else{
+        return (find_kth(nums1,m,nums2,n,total/2)
+        +find_kth(nums1,m,nums2,n,total/2+1))/2.0;
+    }
+    
+}
 
 int main(){
-    vector<vector<int> > triangle;
-    vector<int> temp;
+    vector<int> a;
+    vector<int> b;
 
-    temp.push_back(1);
-    triangle.push_back(temp);
+    a.push_back(1);
 
-    temp.clear();
-    temp.push_back(2);
-    temp.push_back(3);
-
-    triangle.push_back(temp);
-    cout<<minimumTotal(triangle)<<endl;
-
+    cout<<findMedianSortedArrays(a,b)<<endl;
 }
