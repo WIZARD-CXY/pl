@@ -7,64 +7,44 @@
 #include<stack>
 using namespace std;
 
-int find_kth(vector<int> nums1, int m, vector<int> nums2, int n, int k){
-    //always let nums1's size smaller or equal to nums2
-    if(m>n){
-        return find_kth(nums2,n,nums1,m,k);
-    }
-    
-    if(m==0){
-        return nums2[k-1];
-    }
-    if(k==1){
-        return min(nums1[0],nums2[0]);
-    }
-    
-    //divide k into tow parts
-    
-    int mid1=min(k/2,m),mid2=k-mid1;
-    
-    vector<int>::iterator iter;
-    if(nums1[mid1-1]<nums2[mid2-1]){
-        iter=nums1.begin();
-        for(int i=0; i<mid1; i++){
-            iter++;
-        }
-        nums1.assign(iter,nums1.end());
-        return find_kth(nums1,nums1.size(),nums2,nums2.size(),k-mid1);
-    }else if (nums1[mid1-1]>nums2[mid2-1]){
-        iter=nums2.begin();
-        for(int i=0; i<mid2;i++){
-            iter++;
-        }
-        nums2.assign(iter,nums2.end());
-        return find_kth(nums1,nums1.size(),nums2,nums2.size(),k-mid2);
+vector<vector<int> > res;
+void solve(int n, vector<int> &temp, vector<int> nums,vector<bool> used){
+    if(temp.size()==n){
+        
+        res.push_back(temp);
         
     }else{
-        return nums1[mid1-1];
+        for(int i=0; i<nums.size(); i++){
+            if(used[i] || (i!=0 && nums[i-1]==nums[i] && used[i-1]) ){
+                continue;
+            }
+            temp.push_back(nums[i]);
+            used[i]=1;
+            solve(n,temp,nums,used);
+            used[i]=0;
+            temp.pop_back();
+        }
     }
+}
+vector<vector<int> > permuteUnique(vector<int>& nums) {
+    
+    sort(nums.begin(),nums.end());
+    vector<bool> used(nums.size(),0);
+    vector<int> temp;
+    
+    solve(nums.size(),temp,nums,used);
+    
+    return res; 
+    
 }
 
-double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
-    int m=nums1.size();
-    int n=nums2.size();
-    
-    int total = m+n;
-    
-    if(total & 0x1){
-        return find_kth(nums1,m,nums2,n,total/2+1);
-    }else{
-        return (find_kth(nums1,m,nums2,n,total/2)
-        +find_kth(nums1,m,nums2,n,total/2+1))/2.0;
-    }
-    
-}
+
+
 
 int main(){
-    vector<int> a;
-    vector<int> b;
+    vector<int> test;
+    test.push_back(1);test.push_back(1);test.push_back(3);test.push_back(4);
 
-    a.push_back(1);
-
-    cout<<findMedianSortedArrays(a,b)<<endl;
+    vector<vector<int> > res=permuteUnique(test);
+    
 }
