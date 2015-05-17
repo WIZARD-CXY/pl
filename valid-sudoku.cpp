@@ -7,7 +7,6 @@ public:
     }
     
     bool isValidRow(vector<vector<char> > &board){
-
          for(int i=0; i<9;  i++){
              memset(count,0,sizeof(count));
              for(int j=0; j<9; j++){
@@ -25,7 +24,6 @@ public:
     
         
     bool isValidCol(vector<vector<char> > &board){
-
          for(int i=0; i<9;  i++){
              memset(count,0,sizeof(count));
              for(int j=0; j<9; j++){
