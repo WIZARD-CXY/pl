@@ -16,6 +16,7 @@ public:
         
         while(l1 != NULL || l2 != NULL || carry!=0){
             ListNode *temp = new ListNode(0);
+
             if(l1!=NULL && l2 !=NULL){
                 sum=l1->val+l2->val+carry;
                 l1=l1->next;
@@ -29,6 +30,7 @@ public:
             }else{
                 sum=carry;
             }
+            
             carry=sum/10;
             sum=sum%10;
             

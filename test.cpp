@@ -8,7 +8,7 @@
 using namespace std;
 
 vector<vector<int> > res;
-void solve(int n, vector<int> &temp, vector<int> nums,vector<bool> used){
+void solve(int n, vector<int> &temp, vector<int> &nums,vector<bool> &used){
     if(temp.size()==n){
         
         res.push_back(temp);
