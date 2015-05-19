@@ -15,26 +15,25 @@ public:
         
         ListNode *p=head;
         ListNode *q=head;
-        ListNode *prep=NULL;
+        ListNode *pre=NULL;
         
         for(int i=0; i<n-1 ; i++){
             q=q->next;
         }
         
         while(q->next){
-            prep=p;
+            pre=p;
             p=p->next;
             q=q->next;
         }
-        if(prep == NULL){
+        if(pre == NULL){
             head=p->next;
             delete p;
             
         }else {
-            prep->next=p->next;
+            pre->next=p->next;
             delete p;
         }
         return head;
-        
     }
 };
