@@ -9,6 +9,9 @@
 class Solution {
 public:
     RandomListNode *copyRandomList(RandomListNode *head) {
+        if(head==NULL){
+            return NULL;
+        }
         RandomListNode *newhead=NULL;
         RandomListNode *cur=head;
         
@@ -29,18 +32,21 @@ public:
             if(cur->random){
                 cur->next->random=cur->random->next;
             }
-            cur=cur->next;
+            cur=cur->next->next;
         }
         
         //split two list
         cur=head;
         RandomListNode *temp=newhead;
-        while(cur){
-            cur->next=newhead->next;
+        while(temp->next){
+            cur->next=temp->next;
             cur=cur->next;
             temp->next=cur->next;
             temp=temp->next;
         }
+        cur->next=NULL;
+        temp->next=NULL;
+        
         return newhead;
         
     }
