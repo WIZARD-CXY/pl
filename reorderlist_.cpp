@@ -9,12 +9,15 @@
 class Solution {
 public:
     void reorderList(ListNode* head) {
+        if(head==NULL || head->next==NULL){
+            return;
+        }
         ListNode *slow=head, *fast=head,*pre=NULL;
         
         while(fast && fast->next){
             pre=slow;
             slow=slow->next;
-            fast=fast->next->fast;
+            fast=fast->next->next;
         }
         
         //cut two list
@@ -28,13 +31,16 @@ public:
         ListNode *p=head;
         ListNode *q=slow;
         
-        while(q){
-            ListNode *temp=p->next;
+        // p's len is less or equal to q
+        while(p->next){
+            ListNode *temp1=p->next;
+            ListNode *temp2=q->next;
             p->next=q;
-            q=q->next;
-            p->next=temp
-            
+            q->next=temp1;
+            p=temp1;
+            q=temp2;
         }
+        p->next=q;
         
     }
     
