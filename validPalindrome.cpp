@@ -27,11 +27,11 @@ public:
                 q--;
                 continue;
             }
-            
+            //convert to lower case
             if(s[q]>='A' && s[q] <='Z'){
                 s[q]=s[q]-'A'+'a';
             }
-            
+            //convert to lower case
             if(s[p]>='A' && s[p] <='Z'){
                 s[p]=s[p]-'A'+'a';
             }
