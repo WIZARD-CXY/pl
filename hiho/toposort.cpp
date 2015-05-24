@@ -33,9 +33,9 @@ bool toposort(int n){
             if(!dfs(u)){
                 return false;
             }
-        }
-        return true;
+        } 
     }
+    return true;
 }
 
 int main(){
