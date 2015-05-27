@@ -20,7 +20,6 @@ public:
                 }
             }
             prefix=prefix.substr(0,j);
-            
         }
         
         return prefix;
