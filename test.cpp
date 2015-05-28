@@ -7,44 +7,51 @@
 #include<stack>
 using namespace std;
 
-vector<vector<int> > res;
-void solve(int n, vector<int> &temp, vector<int> &nums,vector<bool> &used){
-    if(temp.size()==n){
+string simplifyPath(string path) {
+    stack<string> ss;
+    
+    for(int i=0; i<path.size();){
+
+        while(i<path.size() && path[i]=='/'){
+            i++;
+        }
+        if(i==path.size()) break;
         
-        res.push_back(temp);
+        string s=""; // record the content between two consecutive '/'
         
-    }else{
-        for(int i=0; i<nums.size(); i++){
-            if(used[i] || (i!=0 && nums[i-1]==nums[i] && used[i-1]) ){
-                continue;
-            }
-            temp.push_back(nums[i]);
-            used[i]=1;
-            solve(n,temp,nums,used);
-            used[i]=0;
-            temp.pop_back();
+        while(i<path.size() && path[i]!='/'){
+            s=s+path[i];
+            i++;
+        }
+        
+        if(s==".." && !ss.empty()){
+            ss.pop();
+        }else if ( s!="." && s !=".."){
+            ss.push(s);
         }
     }
-}
-vector<vector<int> > permuteUnique(vector<int>& nums) {
+
+        
+    //just root path
+    if(ss.empty()){
+        return "/";
+    }
     
-    sort(nums.begin(),nums.end());
-    vector<bool> used(nums.size(),0);
-    vector<int> temp;
-    
-    solve(nums.size(),temp,nums,used);
-    
-    return res; 
-    
+    string res;
+    while(!ss.empty()){
+        res="/"+ss.top()+res;
+        ss.pop();
+        
+    }
+        
+    return res;
 }
 
 
 
 
 int main(){
-    vector<int> test;
-    test.push_back(1);test.push_back(1);test.push_back(3);test.push_back(4);
+    string s="/.../";
 
-    vector<vector<int> > res=permuteUnique(test);
-    
+   cout<<simplifyPath(s)<<endl;
 }
