@@ -1,28 +1,24 @@
 class Solution {
 public:
-    int lengthOfLastWord(const char *s) {
-        int p=strlen(s);
-        int q=0;
+    int lengthOfLastWord(string s) {
+        int len=s.size();
+        int p=len-1;
         
-        if(p==0){
-            return 0;
+        while(p>=0 && s[p]==' '){
+            p--;
         }
-        int end=p-1;
         
-        while(end>=0 && s[end]==' '){
-            end--;
-        }
-        if(end==-1){
+        if(p==-1){
             return 0;
         }
         
-        int begin=end;
+        int end=p;
         
-        while(begin>=0 && s[begin] !=' '){
-            begin--;
+        while(p>=0 && s[p]!=' '){
+            p--;
         }
-        
-        return end-begin;
+
+        return end-p;
         
     }
 };
