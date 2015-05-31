@@ -1,21 +1,15 @@
-#include<iostream>
-#include<string>
-#include<vector>
-#include<sstream>
-#include<algorithm>
-#include<limits.h>
-#include<stack>
-#include<queue>
-using namespace std;
-
-struct TreeNode {
-      int val;
-      TreeNode *left;
-      TreeNode *right;
-      TreeNode(int x) : val(x), left(NULL), right(NULL) {}
-};
-
-vector<vector<int> > zigzagLevelOrder(TreeNode* root) {
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
         vector<vector<int> > res;
         vector<int> temp;
         
@@ -44,8 +38,9 @@ vector<vector<int> > zigzagLevelOrder(TreeNode* root) {
             }
             
             if(count==0){
-                if(level %2==0){
-                    reverse(temp.begin(), temp.end());
+                // (level &1) is important, can not omit ()
+                if((level & 1) == 0){
+                    reverse(temp.begin(),temp.end());
                 }
                 level++;
                 count=qq.size();
@@ -58,14 +53,4 @@ vector<vector<int> > zigzagLevelOrder(TreeNode* root) {
         return res;
         
     }
-
-
-int main(){
-   TreeNode *root= new TreeNode(1);
-   TreeNode *left= new TreeNode(2);
-   TreeNode *right= new TreeNode(3);
-   root->left=left;
-   root->right=right;
-
-   zigzagLevelOrder(root);
-}
+};
