@@ -1,13 +1,6 @@
-#include<iostream>
-#include<string>
-#include<vector>
-#include<sstream>
-#include<algorithm>
-#include<limits.h>
-#include<stack>
-using namespace std;
-
- int rob(vector<int>& nums) {
+class Solution {
+public:
+    int rob(vector<int>& nums) {
         int n=nums.size();
         
         if(n==0){
@@ -17,10 +10,9 @@ using namespace std;
             return nums[0];
         }
         
-        int dp[n+1];
+        int dp[n+1]={0};
         
         //find the 1st to 2nd last neibourgh best val
-        
         dp[1]=nums[0];
         
         for(int i=2;i<=n-1; i++){
@@ -40,14 +32,4 @@ using namespace std;
         
         return max(dp[n],res);
     }
-
-
-
-
-int main(){
-   vector<int> s;
-   s.push_back(0);    
-   s.push_back(0);    
-   s.push_back(0);    
-   cout<<rob(s)<<endl;
-}
+};

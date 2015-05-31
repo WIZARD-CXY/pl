@@ -9,7 +9,7 @@ public:
         if(n==1){
             return nums[0];
         }
-        
+        //no extra space required
         nums[1]=max(nums[1],nums[0]);
         
         for(int i=2; i<n; i++){
