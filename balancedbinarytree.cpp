@@ -17,7 +17,7 @@ public:
     }
     
     int height(TreeNode* node){
-        //return the max height of left subtree or right subtree
+        // return (the max height of left subtree or right subtree) plus 1
         // if the tree has already be checked out as unbalanced
         // return early
         if(!isBalance){
@@ -26,14 +26,13 @@ public:
         if(node==NULL){
             return 0;
         }
-    
-        
+      
         int leftHeight = height(node->left);
         int rightHeight= height(node->right);
         
         if(abs(leftHeight-rightHeight)>1){
             isBalance=false;
-        }
+        } 
         return max(leftHeight,rightHeight)+1;
     }
 };
