@@ -1,31 +1,44 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
 class Solution {
 public:
-    int min=0x7ffffff;
-    int minDepth(TreeNode *root) {
+    int minD=INT_MAX;
+    int minDepth(TreeNode* root) {
         if(root==NULL){
             return 0;
         }
         dfs(root,0);
         
-        return min;
+        return minD;
     }
     
-    void dfs(TreeNode *node, int curDepth){
-        curDepth++;
+    void dfs(TreeNode *root,int curD){
+        curD++;
         
-        if(node->left == NULL && node->right ==NULL){
-            if(curDepth<min){
-                min=curDepth;
-            }
+        if(curD>minD){
+            // prune, if the current depth is larger than minD no need to go deeper
             return;
         }
-        
-        if(node->left){
-            dfs(node->left,curDepth);
+    
+        if(root->left==NULL && root->right==NULL){
+            if(curD<minD){
+                minD=curD;
+            }
         }
         
-        if(node->right){
-            dfs(node->right,curDepth);
+        if(root->left){
+            dfs(root->left,curD);
         }
+        if(root->right){
+            dfs(root->right,curD);
+        }
+        
     }
 };
