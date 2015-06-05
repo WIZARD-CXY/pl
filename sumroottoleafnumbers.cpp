@@ -22,7 +22,7 @@ public:
             dfs(node->left, cur*10+node->val);
         }
         if(node->right){
-            dfs(node->right,cur*10+node->val);
+            dfs(node->right, cur*10+node->val);
         }
     }
     int sumNumbers(TreeNode *root) {
