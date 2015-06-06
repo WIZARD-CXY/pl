@@ -6,13 +6,16 @@ public:
             return res;
         }
         vector<int> path;
-        for(int i=1;i<=n;i++){
+        for(int i=1; i<=n; i++){
             dfs(i,n,k,path);
         }
         return res;
     }
     
     void dfs(int start,int n,int k, vector<int> &path){
+        if(path.size()>k){
+            return;
+        }
         path.push_back(start);
         if(path.size()==k){
             res.push_back(path);
