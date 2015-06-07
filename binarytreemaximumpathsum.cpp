@@ -38,4 +38,4 @@ public:
          return max(lsum,rsum)>0?max(lsum,rsum)+root->val:root->val;
         
     }
-};
+};su

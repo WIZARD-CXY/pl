@@ -1,18 +1,17 @@
 class Solution {
 public:
-    void merge(int A[], int m, int B[], int n) {
-         int x=m-1;
-         int y=n-1;
-         int i=m+n-1;
-         
-         while(x>=0 || y>=0){
-             if((y<0) || (x>=0 && A[x] >= B[y])) {
-                 A[i--] = A[x--];
-             }else{
-                 A[i--] = B[y--];
-             }
-             
-         }
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        int p=m-1;
+        int q=n-1;
+        int i=m+n-1;
         
+        // copy from back avoid using extra space
+        while(p>=0 || q>=0){
+            if(q<0 || (p>=0 &&nums1[p]>=nums2[q])){
+                nums1[i--]=nums1[p--];
+            }else{
+                nums1[i--]=nums2[q--];
+            }
+        }
     }
 };

@@ -1,6 +1,7 @@
 class Solution {
 public:
     void merge(int A[], int m, int B[], int n) {
+         //naive way from merge sort
          int x=0;
          int y=0;
          int i=0;
