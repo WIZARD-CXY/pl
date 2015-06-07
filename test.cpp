@@ -6,66 +6,39 @@
 #include<limits.h>
 #include<stack>
 #include<queue>
+#include<set>
+
 using namespace std;
 
-struct TreeNode {
-      int val;
-      TreeNode *left;
-      TreeNode *right;
-      TreeNode(int x) : val(x), left(NULL), right(NULL) {}
-};
-
-vector<vector<int> > zigzagLevelOrder(TreeNode* root) {
-        vector<vector<int> > res;
-        vector<int> temp;
+bool containsNearbyAlmostDuplicate(vector<int>& nums, int k, int t) {
+        multiset<int> mset;
         
-        if(root==NULL){
-            return res;
+        for(int i=0; i<nums.size(); i++)
+        {
+            mset.insert(nums[i]);
+            if(mset.size()==k+2)
+            {
+                auto it=mset.find(nums[i-k]);
+                mset.erase(it);
+            }
+            int tmp=nums[i];
+            auto it=mset.lower_bound(tmp-t);
+            if(it!=mset.end())
+            {
+                int diff=abs(*it-tmp);
+                if(diff<=t)
+                    return true;
+            }
+           
         }
-        
-        queue<TreeNode*> qq;
-     
-        qq.push(root);
-        
-        int count=1;
-        int level=1;
-        
-        while(!qq.empty()){
-            TreeNode *p = qq.front();
-            qq.pop();
-            temp.push_back(p->val);
-            
-            count--;
-            if(p->left){
-                qq.push(p->left);
-            }
-            if(p->right){
-                qq.push(p->right);
-            }
-            
-            if(count==0){
-                if(level %2==0){
-                    reverse(temp.begin(), temp.end());
-                }
-                level++;
-                count=qq.size();
-                
-                res.push_back(temp);
-                temp.clear();
-            }
-        }
-        
-        return res;
-        
+        return false;
     }
 
 
 int main(){
-   TreeNode *root= new TreeNode(1);
-   TreeNode *left= new TreeNode(2);
-   TreeNode *right= new TreeNode(3);
-   root->left=left;
-   root->right=right;
+   vector<int> v;
+   v.push_back(-1);
+   v.push_back(-1);
 
-   zigzagLevelOrder(root);
+   cout<<containsNearbyAlmostDuplicate(v,1,-1)<<endl;
 }
