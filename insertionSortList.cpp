@@ -2,22 +2,22 @@ class Solution {
 public:
     ListNode *insertionSortList(ListNode *head) {
         ListNode *dummy = new ListNode(-1);
+        ListNode *cur=head;
         
-        while(head){
+        while(cur){
+            ListNode *pre = dummy;
             
-            ListNode *cur = dummy;
-            
-            while(cur->next && cur->next->val < head->val){
-                cur=cur->next;
+            while(pre->next && pre->next->val <= cur->val){
+                pre=pre->next;
             }
             //save the head->next first
-            ListNode *temp = head->next;
+            ListNode *temp = cur->next;
             //insert head into the list following cur
-            head->next=cur->next;
-            cur->next=head;
+            cur->next=pre->next;
+            pre->next=cur;
             
-            // move forward
-            head=temp;
+            // move cur forward one step
+            cur=temp;
         }
         return dummy->next;
     }
