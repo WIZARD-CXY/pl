@@ -10,8 +10,6 @@ class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
         // This solution use O(min(len(l1),len(l2))) time
-        if(l1==NULL) return l2;
-        if(l2==NULL) return l1;
         ListNode *dummy=new ListNode(-1);
         ListNode *temp=dummy;
         
