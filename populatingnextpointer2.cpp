@@ -10,7 +10,7 @@ class Solution {
 public:
     void connect(TreeLinkNode *root) {
         while(root){
-            //travesal from uo to down util met NULL pointer
+            //travesal from up to down util meet NULL pointer
             
             TreeLinkNode *pre=NULL; //record the current level's pre-node
             TreeLinkNode *next=NULL; // record the next level's first node
