@@ -1,7 +1,6 @@
 class Solution {
 public:
     int ladderLength(string start, string end, unordered_set<string> &dict) {
-        
         queue<string> path;
         path.push(start);
         int level=1;
