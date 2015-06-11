@@ -1,7 +1,6 @@
 class Solution {
 public:
     int ladderLength(string start, string end, unordered_set<string> &dict) {
-        
         queue<string> path;
         path.push(start);
         int level=1;
@@ -14,6 +13,7 @@ public:
             count--;
             for(int i=0; i<cur.size(); i++){
                 string temp=cur;
+                // traversal all 25 case 'a' to 'z' except temp[i]
                 for(char j='a'; j<='z'; j++){
                    if(temp[i]==j){
                        continue;
@@ -27,14 +27,12 @@ public:
                        path.push(temp);
                        dict.erase(temp);
                    }
-                }
-                
+                }    
             }
             if(count==0){
                 count=path.size();
                 level++;
             }
-            
         }
         return 0;
     }
