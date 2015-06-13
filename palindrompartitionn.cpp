@@ -19,6 +19,7 @@ public:
         return res;
     }
     
+    //use dfs to find all the res that started fron start
     void dfs(string &s, int start,vector<string> &path){
         if(start==s.size()){
             res.push_back(path);
