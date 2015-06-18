@@ -58,19 +58,24 @@ public:
                 int k=word[i]-'a';
                 p=p->child[k];
             }else if (p && word[i]=='.'){
-                TrieNode *tmp=p;
-                for(int j=0; j<26; j++){
-                    p=tmp->child[j];
-                    if(helper(word.substr(i+1),p)){
+                int j;
+                for(j=0; j<26; j++){
+                    if(helper(word.substr(i+1),p->child[j])){
                         return true;
                     }
                 }
-            }else break;
+
+                // if all the child are failed return false
+                if(j==26){
+                    return false;
+                }
+            }
+            
+            if(!p){
+                return false;
+            }
         }
-        if(!p){
-            return false;
-        }
-        
+       
         return p->isWord;
     }
 };
@@ -79,4 +84,3 @@ public:
 // WordDictionary wordDictionary;
 // wordDictionary.addWord("word");
 // wordDictionary.search("pattern");
-
