@@ -8,6 +8,9 @@ public:
         int res=0; // the current jump number
         
         for(int i=0; i<n; i++){
+            if(curMax<i){
+                return -1;// can't get the last index return -1
+            }
             if(curReach<i){
                 // if the current farthest reach can not get i, need  take another jump to get to curMax
                 res++;
