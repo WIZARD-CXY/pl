@@ -1,7 +1,9 @@
 class Solution {
-public:  
+public:
     vector<vector<int> > G;
     vector<int> vis;
+    vector<int> res;
+    int t;
     
     bool dfs(int u){
         vis[u]=-1;
@@ -16,10 +18,12 @@ public:
             }
         }
         vis[u]=1;
+        res[--t]=u;
         
         return true;
     }
     bool topo(int n){
+        t=n;
         for(int u=0; u<n; u++){
             if(!vis[u]){
                 if(!dfs(u)){
@@ -29,18 +33,19 @@ public:
         }
         return true;
     }
-    
-    bool canFinish(int numCourses, vector<pair<int, int>>& prerequisites) {
-        // transfer the prerequisites to adjacent list graph representation
-        int n=prerequisites.size();
-        vis.assign(numCourses,0);
-        
+    vector<int> findOrder(int numCourses, vector<pair<int, int>>& prerequisites) {
         G.assign(numCourses,vector<int>(0));
+        vis.assign(numCourses,0);
+        res.assign(numCourses,0);
         
-        for(int i=0; i<n; i++){
+        int m=prerequisites.size();
+        for(int i=0; i<m; i++){
             G[prerequisites[i].second].push_back(prerequisites[i].first);
         }
         
-        return topo(numCourses);
+        if(topo(numCourses)){
+            return res;
+        }
+        return vector<int>();
     }
 };
