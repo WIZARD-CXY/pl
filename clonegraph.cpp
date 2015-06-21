@@ -9,7 +9,6 @@
 #define UNode UndirectedGraphNode
 class Solution {
 public:
-    unordered_map<UNode*, UNode* >::iterator iter;
     UndirectedGraphNode *cloneGraph(UndirectedGraphNode *node) {
         if(node == NULL){
             return NULL;
@@ -20,24 +19,24 @@ public:
         unordered_map<UNode*, UNode*> mm;
         mm[node]=nnode;
         
-        dfs(mm,node,nnode);
+        dfs(mm,node);
         
         return nnode;
         
     }
     
-    void dfs(unordered_map<UNode*, UNode*> &mm, UNode* node, UNode* nnode){
-        for(int i=0; i != node->neighbors.size(); i++){
-            UNode *now = node->neighbors[i];
-            if((iter=mm.find(now))!=mm.end()){
+    void dfs(unordered_map<UNode*, UNode*> &mm, UNode* cur){
+        for(int i=0; i != cur->neighbors.size(); i++){
+            UNode *now = cur->neighbors[i];
+            if((mm.find(now))!=mm.end()){
                 //neighbor pre-exist in the map just update the neighbors
-                nnode->neighbors.push_back(iter->second);
+                mm[cur]->neighbors.push_back(mm[now]);
             }else{
                 //cloned neighbor not existed before, just create a new node and dfs on it
                 UNode *nnow = new UNode(now->label);
                 mm[now]=nnow;
-                nnode->neighbors.push_back(nnow);
-                dfs(mm,now,nnow);
+                mm[cur]->neighbors.push_back(nnow);
+                dfs(mm,now);
             }
         }
     }

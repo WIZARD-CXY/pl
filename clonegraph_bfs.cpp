@@ -30,9 +30,9 @@ public:
             qq.pop();
             
             for(int i=0; i<cur->neighbors.size(); i++){
-                // a copy has already exist, just need to link to the parent
                 UNode *now = cur->neighbors[i];
                 if(mm.find(now)!=mm.end()){
+                    // a copy has already exist, just need to link to the neighbor
                     mm[cur]->neighbors.push_back(mm[now]);
                 }else{
                     UNode *nnode = new UNode(now->label);
