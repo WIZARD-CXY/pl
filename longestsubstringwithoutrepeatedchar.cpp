@@ -15,6 +15,7 @@ public:
                 }
             } else{
                 // else it means s[i] is already exists in substr
+                // move the substring start index
                 start=last[s[i]]+1;
             }
             last[s[i]] = i;
