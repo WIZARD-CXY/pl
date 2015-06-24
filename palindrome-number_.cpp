@@ -17,9 +17,10 @@ public:
             if(leftdigit != rightdigit){
                 return false;
             }
-            x=x-leftdigit*base;
+            // remove the front and tail of x
+            x=x%base/10;
             base/=100;
-            x/=10;
+            
         }
         
         return true;
