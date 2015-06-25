@@ -6,7 +6,7 @@ public:
         //indicate the start index of words in a line
         int start=0;
         
-        //indicate the current available length, the first word len does not including leading space
+        //len indicate the current length, the first word len does not including leading space
         //other word will plus a space leading this word
         int len=words[0].size(); 
         
@@ -67,4 +67,4 @@ public:
        
        return temp;
     }
-};
+};kb
