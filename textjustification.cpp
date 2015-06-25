@@ -23,7 +23,23 @@ public:
                 len+=words[i].size()+1;
             }
         }
+        //add last line
+        string temp=addSpaceLastline(words,start,words.size(),maxWidth,len);
+        res.push_back(temp);
         return res;
+        
+    }
+    string addSpaceLastline(vector<string> &words, int start, int end, int maxWidth, int len){
+        string temp=words[start];
+        for(int i=start+1; i<end; i++){
+            temp+=" "+words[i];
+        }
+        //append with extra space
+        if(temp.size()<maxWidth){
+            temp.append(maxWidth-temp.size(),' ');
+        }
+        
+        return temp;
         
     }
     // add space evenly to [start,end)
