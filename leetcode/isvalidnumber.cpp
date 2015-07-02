@@ -1,13 +1,3 @@
-#include<iostream>
-#include<string>
-#include<vector>
-#include<sstream>
-#include<algorithm>
-#include<limits.h>
-#include<stack>
-#include<queue>
-using namespace std;
-
 class Solution {
 public:
     bool isNumber(string s) {
@@ -50,7 +40,6 @@ public:
             string s1=ss.substr(0,epos);
             string s2=ss.substr(epos+1);
             // s1 may have dot , but s2 must not have dot
-            cout<<isvalid(s1)<<" "<<isSign(s2)<<endl;
             return isvalid(s1) && isSign(s2);
         }
         
@@ -102,7 +91,7 @@ public:
     }
     
     bool isSign(string s){
-        if(s[0]=='+' || s[0]=='+'){
+        if(s[0]=='+' || s[0]=='-'){
             s=s.substr(1);
         }
         return isPureNumber(s);
@@ -120,8 +109,3 @@ public:
         return true;
     }
 };
-
-int main(){
-    Solution sln;
-    cout<<sln.isNumber("32.e-80123");
-}
