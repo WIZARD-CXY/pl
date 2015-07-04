@@ -6,7 +6,6 @@ public:
         vector<vector<int> > res;
         int n=nums.size();
         
-        
         for(int i=0;i<(1<<n); i++){
             vector<int> temp;
             
