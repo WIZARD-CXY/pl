@@ -1,14 +1,3 @@
-#include<iostream>
-#include<string>
-#include<vector>
-#include<sstream>
-#include<algorithm>
-#include<limits.h>
-#include<stack>
-#include<queue>
-#include<set>
-using namespace std;
-
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
@@ -23,9 +12,12 @@ public:
         
         int minV=prices[0];
         
+        // note the iteration order, only sell after buy, so the two iterarion order is reversed
+        // and use minV and MaxV variable
         for(int i=1; i<n; i++){
             minV=min(minV,prices[i]);
             pre[i]=max(pre[i-1],prices[i]-minV);
+                               
         }
         
         int maxV=prices[n-1];
@@ -40,25 +32,7 @@ public:
         for(int i=0; i<n; i++){
             res=max(res,pre[i]+post[i]);
         }
-
-        for(int i=0; i<n; i++){
-            cout<<pre[i]<<" ";
-        }
-        cout<<endl;
-
-        for(int i=0; i<n; i++){
-            cout<<post[i]<<" ";
-        }
-        cout<<endl;
+        
         return res;
     }
 };
-
-int main(){
-    Solution sln;
-
-    vector<int> words;
-    words.push_back(2);
-    words.push_back(1);
-    sln.maxProfit(words);
-}

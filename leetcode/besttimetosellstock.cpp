@@ -11,8 +11,8 @@ public:
         for(int i=1; i<prices.size(); i++){
             if(prices[i]<low){
                 low=prices[i];
-            }else if(prices[i]-low > ans){
-                ans=prices[i]-low;
+            }else {
+                ans=max(ans,prices[i]-low);
             }
         }
         return ans;
