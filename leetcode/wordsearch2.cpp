@@ -1,14 +1,3 @@
-#include<iostream>
-#include<string>
-#include<vector>
-#include<sstream>
-#include<algorithm>
-#include<limits.h>
-#include<stack>
-#include<queue>
-#include<set>
-using namespace std;
-
 class Solution {
 public:
     struct TrieNode{
@@ -143,12 +132,3 @@ public:
         
     }
 };
-
-int main(){
-    Solution sln;
-    vector<vector<char> > board(1,vector<char>(2,'a'));
-
-    vector<string> words;
-    words.push_back("aa");
-    sln.findWords(board,words);
-}
