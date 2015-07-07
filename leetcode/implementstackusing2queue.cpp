@@ -19,6 +19,7 @@ public:
 
     // Get the top element.
     int top() {
+        // move all element to the other queue
         while(qq[cur].size()>1){
             qq[1-cur].push(qq[cur].front());
             qq[cur].pop();
