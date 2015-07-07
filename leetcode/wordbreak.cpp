@@ -2,7 +2,7 @@
 class Solution {
 public:
     bool wordBreak(string s, unordered_set<string> &dict) {
-        
+        //res[i]=1 means s[0..i] is cuttable
         bool res[s.size()+1]; 
         memset(res, 0, sizeof(res));
         
@@ -10,6 +10,7 @@ public:
         
         for(int i=1; i<=s.size(); i++){
             for(int j=i-1; j>=0; j--){
+                // j is cutting point 
                 if(res[j] && dict.find(s.substr(j,i-j))!=dict.end()){
                     res[i]=1;
                     break;
