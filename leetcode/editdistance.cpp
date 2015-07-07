@@ -1,14 +1,3 @@
-#include<iostream>
-#include<string>
-#include<vector>
-#include<sstream>
-#include<algorithm>
-#include<limits.h>
-#include<stack>
-#include<queue>
-#include<set>
-using namespace std;
-
 class Solution {
 public:
     int minDistance(string word1, string word2) {
@@ -34,18 +23,11 @@ public:
         
         for(int i=1; i<=l1; i++){
             for(int j=1; j<=l2; j++){
-                int a= min(dp[i-1][j]+1,dp[i][j-1]+1);
-                cout<<"haha "<<a<<" "<<(dp[i-1][j-1]+(word1[i-1]==word2[j-1])?0:1)<<" ";
-                dp[i][j]=min(a, dp[i-1][j-1]+((word1[i-1]==word2[j-1])?0:1));
+                int cost=(word1[i-1]==word2[j-1])?0:1;
+                dp[i][j]=min(min(dp[i-1][j]+1,dp[i][j-1]+1),dp[i-1][j-1]+cost);
             }
         }
         
         return dp[l1][l2];
     }
 };
-
-int main(){
-    Solution sln;
-
-    cout<<sln.minDistance("a","ab");
-}
