@@ -2,7 +2,7 @@
 class Solution {
 public:
     bool wordBreak(string s, unordered_set<string> &dict) {
-        //res[i]=1 means s[0..i] is cuttable
+        //res[i]=1 means s[0..i) is cuttable
         bool res[s.size()+1]; 
         memset(res, 0, sizeof(res));
         
