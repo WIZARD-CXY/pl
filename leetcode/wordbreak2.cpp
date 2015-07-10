@@ -1,8 +1,9 @@
 class Solution {
 public:
-    void helper(vector<string> &res, string &s, int start, string str, unordered_set<string>& dict, vector<bool> dp){
+    void helper(vector<string> &res, string &s, int start, string str, unordered_set<string>& dict, vector<bool> &dp){
         string substr;
         for(int len=1; start+len <s.size()+1; len++){
+            // assume s[0..start) is breakable
             if(dp[start+len] && dict.find(s.substr(start,len))!=dict.end()){
                 // if idx +len is breakable
                 substr = s.substr(start,len);
@@ -39,7 +40,8 @@ public:
         }
         
         if(dp[s.size()]){
-            //if breakable call helper
+            //if breakable, call helper
+            
             helper(res,s,0,"",wordDict,dp);
         }
         
