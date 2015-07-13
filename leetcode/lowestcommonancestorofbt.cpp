@@ -19,6 +19,7 @@ public:
                 return true;
             }
         
+            //if found one, prune
             found=dfs(root->left,target,path)||dfs(root->right,target,path);
            
             if(!found){
