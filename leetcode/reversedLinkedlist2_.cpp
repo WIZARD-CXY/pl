@@ -24,7 +24,8 @@ public:
         for(int i=m; i<n; i++){
             ListNode *temp = cur->next;
             pre->next=temp;
-            cur->next=head2->next;//insert to the head2->next
+            //insert to the head2->next
+            cur->next=head2->next;
             head2->next=cur;
             cur=temp;
         }
