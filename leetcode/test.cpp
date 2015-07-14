@@ -9,48 +9,43 @@
 #include<set>
 using namespace std;
 
-struct ListNode {
-     int val;
-     ListNode *next;
-     ListNode(int x) : val(x), next(NULL) {}
-};
 class Solution {
 public:
-    ListNode* removeNthFromEnd(ListNode* head, int n)
-{
-    if (head == NULL)
-        return head;
-
-    ListNode* pFast=head, *pSlow=head, *pre;
-
-    while(n!=0)
-    {   
-        pFast= pFast->next;
-        n--;
+    int minDistance(string word1, string word2) {
+        int l1=word1.size();
+        int l2=word2.size();
+        
+        if(l1==0){
+            return l2;
+        }
+        if(l2==0){
+            return l1;
+        }
+        
+        vector<vector<int> > dp(l1+1,vector<int>(l2+1));
+        //dp[i][j] means the distance that change from word1[1..i] to word2[1..j]
+        
+        for(int i=0; i<=l1; i++){
+            dp[i][0]=i;
+        }
+        for(int i=0; i<=l2; i++){
+            dp[0][i]=i;
+        }
+        
+        for(int i=1; i<=l1; i++){
+            for(int j=1; j<=l2; j++){
+                int a= min(dp[i-1][j]+1,dp[i][j-1]+1);
+                cout<<"haha "<<a<<" "<<(dp[i-1][j-1]+(word1[i-1]==word2[j-1])?0:1)<<" ";
+                dp[i][j]=min(a, dp[i-1][j-1]+((word1[i-1]==word2[j-1])?0:1));
+            }
+        }
+        
+        return dp[l1][l2];
     }
-    while(pFast != NULL)
-    {
-        pFast = pFast->next;
-        pre = pSlow;
-        pSlow = pSlow ->next;
-
-    }
-    if(pSlow == head)
-        head = head->next;
-        return head;
-   
-    pre->next = pSlow->next;
-    delete(pSlow);
-
-    return head;
-}
 };
 
 int main(){
     Solution sln;
-    ListNode *head= new ListNode(1);
-    ListNode *next= new ListNode(2);
-    head->next=next;
 
-    sln.removeNthFromEnd(head,1);
+    cout<<sln.minDistance("a","ab");
 }

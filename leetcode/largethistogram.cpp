@@ -5,7 +5,7 @@ public:
         stack<int> ss;
         
         int i=0;
-        height.push_back(0);// one dummy element
+        height.push_back(0);// one dummy element int the end
         
         while(i<height.size()){
             if(ss.empty()||height[i]>=height[ss.top()]){
