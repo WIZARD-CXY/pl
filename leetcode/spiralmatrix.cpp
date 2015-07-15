@@ -43,7 +43,7 @@ public:
             for(int i=rx-1;i>=lx+1; i--){ // 4
                 res.push_back(matrix[i][lx]);
             }
-            // move the up left conner down and down right corner up 
+            // move the up left conner right-down and down right corner left up 
             lx++;
             ly++;
             rx--;
