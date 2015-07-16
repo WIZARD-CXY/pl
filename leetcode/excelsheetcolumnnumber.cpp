@@ -7,6 +7,5 @@ public:
         }
         
         return res;
-        
     }
 };
