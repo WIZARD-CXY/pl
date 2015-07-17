@@ -19,8 +19,8 @@ public:
                 return true;
             }
         
-            //if found one, prune
-            found=dfs(root->left,target,path)||dfs(root->right,target,path);
+            //find in left sub tree or right subtree, if found one, prune
+            found=dfs(root->left,target,path) || dfs(root->right,target,path);
            
             if(!found){
                  path.pop_back();

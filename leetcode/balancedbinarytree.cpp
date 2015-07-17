@@ -1,5 +1,5 @@
 /**
- * Definition for binary tree
+ * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;
  *     TreeNode *left;
@@ -9,30 +9,25 @@
  */
 class Solution {
 public:
-    bool isBalance=true;
-    
-    bool isBalanced(TreeNode *root) {
-        height(root);
-        return isBalance;
+    bool isBalanced(TreeNode* root) {
+        int d=0;
+        return helper(root,d);
     }
-    
-    int height(TreeNode* node){
-        // return (the max height of left subtree or right subtree) plus 1
-        // if the tree has already be checked out as unbalanced
-        // return early
-        if(!isBalance){
-            return -1;
+    bool helper(TreeNode *root, int &d){
+        if(root==NULL){
+            d=0;
+            return true;
         }
-        if(node==NULL){
-            return 0;
+        //root->left depth, root->right depth
+        int ld,rd;
+        if(helper(root->left,ld) && helper(root->right,rd)){
+            //if left sub tree is balanced and right is
+            if(abs(ld-rd)<=1){
+                d=max(ld,rd)+1;
+                return true;
+            }
         }
-      
-        int leftHeight = height(node->left);
-        int rightHeight= height(node->right);
         
-        if(abs(leftHeight-rightHeight)>1){
-            isBalance=false;
-        } 
-        return max(leftHeight,rightHeight)+1;
+        return false;
     }
 };

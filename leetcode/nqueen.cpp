@@ -42,9 +42,12 @@ public:
             if(!ok){
                 continue;// not valid, try next column 
             }
+            // ok set the new queen in [row][j]
             C[row]=j;
+            //mark it 
             columns[j]=diags[row+j]=anti_diags[row-j+n]=1;
             dfs(C,row+1);
+            // unmark it
             columns[j]=diags[row+j]=anti_diags[row-j+n]=0;
         }
     }
