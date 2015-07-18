@@ -1,14 +1,3 @@
-#include<iostream>
-#include<string>
-#include<vector>
-#include<sstream>
-#include<algorithm>
-#include<limits.h>
-#include<stack>
-#include<queue>
-#include<set>
-using namespace std;
-
 class Solution {
 public:
     /**
@@ -31,7 +20,9 @@ public:
         
         for(int i=1; i<n; i++){
             lsum[i]=max(lsum[i-1]+nums[i],nums[i]);
-            
+        }
+        
+        for(int i=1; i<n; i++){
             if(lsum[i]>curmax){
                 curmax=lsum[i];
             }else{
@@ -39,13 +30,15 @@ public:
             }
         }
         
-        // rsum[i] means [i,n-1] maxsum 
+        // rsum[i] means [i,n-1] maxsum
         int rsum[n];
         rsum[n-1]=nums[n-1];
         curmax=nums[n-1];
         
         for(int i=n-2; i>=0; i--){
-            rsum[i]=max(rsum[i+1]+nums[i],nums[i]);
+            rsum[i]=max(rsum[i+1]+nums[i],nums[i]);   
+        }
+        for(int i=n-2; i>=0; i--){
             if(rsum[i]>curmax){
                 curmax=rsum[i];
             }else{
@@ -64,18 +57,3 @@ public:
     }
 };
 
-
-
-int main(){
-    Solution sln;
-
-    vector<int> ivec;
-    ivec.push_back(1);
-    ivec.push_back(3);
-    ivec.push_back(-1);
-    ivec.push_back(2);
-    ivec.push_back(-1);
-    ivec.push_back(2);
-
-    cout<<sln.maxTwoSubArrays(ivec);
-}
