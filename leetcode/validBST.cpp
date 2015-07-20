@@ -2,8 +2,9 @@ class Solution {
 public:
     bool check(TreeNode *node, long leftVal, long rightVal)
     {
-        if (node == NULL)
+        if(node == NULL){
             return true;
+        }
             
         return leftVal < node->val && node->val < rightVal && check(node->left, leftVal, node->val) &&
             check(node->right, node->val, rightVal);

@@ -6,6 +6,7 @@ public:
         
         int max=0;
         
+        // try every string centre position
         for(int i=0; i<len; i++){
             // odd length like ABA
             for(int j=0; i-j>=0 && i+j<len; j++){
