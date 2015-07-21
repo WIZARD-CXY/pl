@@ -16,7 +16,7 @@ public:
         vector<int> res;
         
         for(int i=0; i<nums.size(); i++){
-            if(maxheap.empty() || nums[i]<maxheap.top()){
+            if(!maxheap.empty() && nums[i]<maxheap.top()){
                 maxheap.push(nums[i]);
             }else{
                 minheap.push(nums[i]);

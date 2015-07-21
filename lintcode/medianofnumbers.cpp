@@ -6,12 +6,11 @@ public:
      */
     vector<int> medianII(vector<int> &nums) {
         // write your code here
-        multiset<int> minheap;
-        multiset<int> maxheap;
+        multiset<int> minheap,maxheap;
         vector<int> res;
         
         for(int i=0; i<nums.size(); i++){
-            if(maxheap.empty() || nums[i]<*maxheap.rbegin()){
+            if(!maxheap.empty() && nums[i]<=*maxheap.rbegin()){
                 maxheap.insert(nums[i]);
             }else{
                 minheap.insert(nums[i]);
