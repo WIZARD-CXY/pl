@@ -19,7 +19,7 @@ public:
             
             if(p[j]=='*'){
                 //match zero char
-                pj=j++;
+                pj=j++; //record the start pos
                 pi=i;
                 continue;
             }
@@ -32,7 +32,7 @@ public:
             return false;
         }
         
-        while(p[j]=='*'){
+        while(j < psize && p[j]=='*'){
             j++;// skip trailing star
         }
         
