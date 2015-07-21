@@ -1,15 +1,20 @@
 class Solution {
-public:
-    vector<string> anagrams(vector<string>& strs) {
+public:    
+    /**
+     * @param strs: A list of strings
+     * @return: A list of strings
+     */
+    vector<string> anagrams(vector<string> &strs) {
+        // write your code here
         unordered_map<string, vector<string> > mm;
-        
-        for(int i=0; i<strs.size(); i++){
-            string temp=strs[i];
+        vector<string> res;
+        for(auto s: strs){
+            string temp=s;
             sort(temp.begin(),temp.end());
-            mm[temp].push_back(strs[i]);
+            //temp is anagrams's signature
+            mm[temp].push_back(s);
         }
         
-        vector<string> res;
         for(auto iter=mm.begin(); iter!=mm.end(); iter++){
             if(iter->second.size()>1){
                 res.insert(res.end(),iter->second.begin(),iter->second.end());
@@ -19,3 +24,4 @@ public:
         return res;
     }
 };
+
