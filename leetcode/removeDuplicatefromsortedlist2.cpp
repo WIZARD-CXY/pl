@@ -25,7 +25,7 @@ public:
             
             if(dup){
                 //delete the last dup one
-                ListNode * temp=cur;
+                ListNode *temp=cur;
                 cur=cur->next;
                 delete temp;
                 continue;
