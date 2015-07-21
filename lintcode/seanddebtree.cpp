@@ -24,7 +24,7 @@ public:
         
         return sout.str();
     }
-    
+    //pre order travesal serialize
     void _se(TreeNode *root, ostringstream &sout){
         if(root==NULL){
             sout<<"# ";
@@ -34,20 +34,6 @@ public:
         _se(root->left,sout);
         _se(root->right,sout);
         
-    }
-    
-    TreeNode* _de(istringstream &sin){
-        char token[20];
-        sin>>token;
-        if(token[0]=='#'){
-            return NULL;
-        }
-        
-        TreeNode *root= new TreeNode(atoi(token));
-        root->left=_de(sin);
-        root->right=_de(sin);
-        
-        return root;
     }
 
     /**
@@ -62,6 +48,21 @@ public:
         istringstream sin(data);
         return _de(sin);
         
+    }
+
+    //deserialize using preorder travesal
+    TreeNode* _de(istringstream &sin){
+        char token[20];
+        sin>>token;
+        if(token[0]=='#'){
+            return NULL;
+        }
+        
+        TreeNode *root= new TreeNode(atoi(token));
+        root->left=_de(sin);
+        root->right=_de(sin);
+        
+        return root;
     }
 };
 
