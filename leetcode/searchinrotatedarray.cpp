@@ -17,7 +17,7 @@ public:
                     l=mid+1;
                 }
             }else{
-                if(nums[mid]< target && target<=nums[r-1]){
+                if(nums[mid]<target && target<=nums[r-1]){
                     l=mid+1;
                 }else{
                     r=mid;
