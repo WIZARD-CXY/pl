@@ -13,64 +13,30 @@ using namespace std;
 class Solution {
 public:
     /**
-     *@param n: Given a decimal number that is passed in as a string
+     *@param A: A positive integer which has N digits, A is a string.
+     *@param k: Remove k digits.
      *@return: A string
      */
-    string binaryRepresentation(string n) {
+    string DeleteDigits(string A, int k) {
         // wirte your code here
-        string res="";
-        int dotidx=n.find('.');
         
-        string integer="";
-        string fraction="";
-        int intege=0;
-        double frac=0.0;
+        string temp=A;
         
-        if(dotidx!=-1){
-            integer=n.substr(0,dotidx);
-            intege=stoi(integer);
-            // including leading dot.
-            fraction=n.substr(dotidx); 
-            frac=strtod(fraction.c_str(),NULL);
-        }else{
-            integer=n;
-            intege=stoi(integer);
-        }
-        
-        // convert the integer to binary represent;
-        string intbuf="";
-        if(intege==0){
-            intbuf="0";
-        }
-        while(intege!=0){
-            intbuf=(char)((intege%2)+'0')+intbuf;
-            intege/=2;
-        }
-        
-        //convert the fraction
-        string fracbuf="";
-        while(frac>0.0){
-            if(fracbuf.size()>32){
-                return "ERROR";
+        while(k--){
+            //delete the first decreasing element
+            int i=0;
+            while(i<temp.size()-1 && temp[i]<=temp[i+1]){
+                i++;
             }
-            frac*=2;
-            if(frac>=1.0){
-                fracbuf+="1";
-                frac-=1.0;
-            }else{
-                fracbuf+="0";
-            }
+            temp.erase(i,1);
         }
         
-        return fracbuf==""?intbuf:intbuf+"."+fracbuf;
+        return temp;
     }
 };
 
-
-
-
 int main(){
     Solution sln;
-    cout<<sln.binaryRepresentation("3.72");
+    cout<<sln.DeleteDigits("178542",4);
 }
 

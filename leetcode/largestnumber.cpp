@@ -3,7 +3,6 @@ bool cmp(const string &s1, const string &s2) {
 }
 class Solution {
 public:
-
     string largestNumber(vector<int> &num) {
         vector<string> temp;
     
