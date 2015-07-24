@@ -1,15 +1,3 @@
-#include<iostream>
-#include<string>
-#include<vector>
-#include<sstream>
-#include<algorithm>
-#include<limits.h>
-#include<stack>
-#include<queue>
-#include<set>
-#include<cstring>
-using namespace std;
-
 class Solution {
 public:
     /**
@@ -18,23 +6,17 @@ public:
      */
     string binaryRepresentation(string n) {
         // wirte your code here
-        string res="";
         int dotidx=n.find('.');
         
-        string integer="";
-        string fraction="";
         int intege=0;
         double frac=0.0;
         
         if(dotidx!=-1){
-            integer=n.substr(0,dotidx);
-            intege=stoi(integer);
+            intege=stoi(n.substr(0,dotidx));
             // including leading dot.
-            fraction=n.substr(dotidx); 
-            frac=strtod(fraction.c_str(),NULL);
+            frac=strtod(n.substr(dotidx).c_str(),NULL);
         }else{
-            integer=n;
-            intege=stoi(integer);
+            intege=stoi(n);
         }
         
         // convert the integer to binary represent;
@@ -47,7 +29,7 @@ public:
             intege/=2;
         }
         
-        //convert the fraction
+        //convert the fraction to binary representation
         string fracbuf="";
         while(frac>0.0){
             if(fracbuf.size()>32){
@@ -65,12 +47,4 @@ public:
         return fracbuf==""?intbuf:intbuf+"."+fracbuf;
     }
 };
-
-
-
-
-int main(){
-    Solution sln;
-    cout<<sln.binaryRepresentation("3.72");
-}
 
