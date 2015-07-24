@@ -13,7 +13,7 @@ public:
             return a%b;
         }
         
-        //if b is
+        //long long here avoid oveflow of res
         long long res=fastPower(a,b,n>>1)%b;
         
         res=(res*res)%b;
