@@ -12,7 +12,7 @@ public:
                 return -1;// can't get the last index return -1
             }
             if(curReach<i){
-                // if the current farthest reach can not get i, need  take another jump to get to curMax
+                // if the current farthest reach can not get i, need take another jump to get to curMax
                 res++;
                 curReach=curMax;
             }
