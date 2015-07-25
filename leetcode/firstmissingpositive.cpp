@@ -5,7 +5,7 @@ public:
         
         for(int i=0; i<n; i++){
             while(nums[i]!=i+1){
-                //A[i] == A[A[i] - 1] handles the case where there are two identical values  like A = [1, 1]
+                //nums[i] == nums[nums[i] - 1] handles the case where there are two identical values  like A = [1, 1]
                 if(nums[i]<=0 || nums[i]>n || nums[i]==nums[nums[i]-1]){
                     break;
                 }
