@@ -1,0 +1,1 @@
+virtual function is implemented by virtual table and compiler will prepare a vptr variable

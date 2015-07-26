@@ -1,0 +1,1 @@
+make sure the destructor called is using child class's, not it's father's.

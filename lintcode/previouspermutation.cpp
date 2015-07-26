@@ -19,7 +19,7 @@ public:
         }
         
         if(i>=0){
-            // find the first element that is larger than nums[i]
+            // find the first element that is larger than nums[i] which is nums[j]
             j=i+1;
             
             for(;j<=nums.size()-1; j++){
@@ -28,7 +28,9 @@ public:
                 }
             }
             
+            // then swap the nums[i] and nums[j-1] which is the largest element which is smaller than nums[i]
             swap(nums[i],nums[j-1]);
+            // then reverse
             reverse(nums.begin()+i+1,nums.end());
             return nums;
             

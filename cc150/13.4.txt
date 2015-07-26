@@ -1,0 +1,6 @@
+1 The default copy constructor and default assignment operators do shallow copies,
+which is fine for classes that contain no dynamically allocated variables.
+2 Classes with dynamically allocated variables need to have a copy constructor and assignment operator that do a deep copy.
+
+3 The assignment operator is usually implemented using the same code as the copy constructor, but it checks for self-assignment, returns *this, and deallocates any previously allocated memory before deep copying.
+4 If you don’t want a class to be copyable, use a private copy constructor and assignment operator prototype in the class header.

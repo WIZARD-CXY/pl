@@ -1,0 +1,1 @@
+volatile instruct the compiler every time met with this variable ,fetch it from memory, not using cache or compiler optimization. volatile variable is using in multi-thread program, which is a global variable that can be changed by other thread.

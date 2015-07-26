@@ -1,0 +1,7 @@
+stl map is using red-black tree for storing kv pairs, no need to handle collision, since it is a balanced bst.insert and lookup take O(logn) time while hash is taking O(1) time.
+
+hash design pattern 
+1 choose a hash function that is distributing keys evenly.
+2 dynamicly scale the hash table size
+
+use stl map or bst to replace the hash table if number of element is small
