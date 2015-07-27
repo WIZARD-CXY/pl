@@ -13,32 +13,29 @@ using namespace std;
 class Solution {
 public:
     /**
-     * @param A: A list of integers
-     * @return: The boolean answer
+     *@param A: A positive integer which has N digits, A is a string.
+     *@param k: Remove k digits.
+     *@return: A string
      */
-    bool canJump(vector<int> A) {
-        // write you code here
-        int maxIdx=0;
+    string DeleteDigits(string A, int k) {
+        // wirte your code here
+        string temp=A;
         
-        for(int i=0; i<A.size();i++){
-            maxIdx=(i+A[i],maxIdx);
-            if(maxIdx>=A.size()-1){
-                return true;
+        while(k--){
+            //delete the first decreasing element
+            int i=0;
+            while(i<temp.size()-1 && temp[i]<=temp[i+1]){
+                i++;
             }
-            if(A[i]==0 && maxIdx==i){
-                return false;
-            }
+            temp.erase(i,1);
         }
         
-        return true;
+        return temp;
     }
 };
 
-
-
 int main(){
     Solution sln;
-    vector<int> a{2,1,0,2,3,2,8,5,7,10,9,9,6,6,3,4,2,9,9,0};
-    cout<<sln.canJump(a);
+    cout<<sln.DeleteDigits("178542",4);
 }
 

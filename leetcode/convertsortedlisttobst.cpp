@@ -30,7 +30,8 @@ public:
         return sortedListToBST(head,0,len-1);
     }
     
-    // build the tree from bottom to top using pre-order traversal
+    // build the tree from bottom to top using in-order traversal
+    // may move head
     TreeNode* sortedListToBST(ListNode* &head, int start, int end){
         if(start>end){
             return NULL;
@@ -39,9 +40,9 @@ public:
         int mid=start+(end-start)/2;
         
         TreeNode *left=sortedListToBST(head,start,mid-1);
+        
         TreeNode *root=new TreeNode(head->val);
         root->left=left;
-        
         head=head->next;
         
         root->right=sortedListToBST(head, mid+1, end);
