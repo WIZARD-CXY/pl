@@ -10,6 +10,9 @@ vector<int> G[MAXN];
 int c[MAXN+1];
 
 bool dfs(int u){
+    // c[u]=-1 meams u is in visit
+    // c[u]=0 means u is not visited at all
+    // c[u]=1 means u is visited already
     c[u]=-1;
     
     for(int i=0; i<G[u].size(); i++){
@@ -30,6 +33,7 @@ bool toposort(int n){
     for(int u=1; u<=n; u++)
     {
         if(!c[u]){
+            // if not visited u ,dfs[u]
             if(!dfs(u)){
                 return false;
             }

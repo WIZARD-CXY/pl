@@ -8,6 +8,7 @@
  */
 class Solution {
 public:
+    // use merge sort paradigm
     ListNode* sortList(ListNode* head) {
         if(head==NULL || head->next==NULL){
             return head;
@@ -22,7 +23,6 @@ public:
         }
         //cut the list
         pre->next=NULL;
-        
         
         ListNode* lh = sortList(head);
         ListNode* rh = sortList(slow);

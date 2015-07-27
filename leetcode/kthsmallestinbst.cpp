@@ -9,12 +9,12 @@
  */
 class Solution {
 public:
-    void preorder(TreeNode *node, int &idx, int k, int &res){
+    void inorder(TreeNode *node, int &idx, int k, int &res){
         if(node==NULL){
             return;
         }
         
-        preorder(node->left,idx,k,res);
+        inorder(node->left,idx,k,res);
         idx++;
         if(idx==k){
             res=node->val;
@@ -23,12 +23,12 @@ public:
         if(idx>k){
             return;// prune
         }
-        preorder(node->right,idx,k,res);
+        inorder(node->right,idx,k,res);
     }
     int kthSmallest(TreeNode* root, int k) {
         int res=0;
         int idx=0;
-        preorder(root,idx,k,res);
+        inorder(root,idx,k,res);
         
         return res;
         
