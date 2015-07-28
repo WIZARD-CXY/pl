@@ -17,7 +17,7 @@ public:
                 curReach=curMax;
             }
             // every time try to update the largest jump distance
-            curMax=max(curMax,i+nums[i]);
+            curMax=max(curMax,i+nums[i]);                       
         }
         
         return res;

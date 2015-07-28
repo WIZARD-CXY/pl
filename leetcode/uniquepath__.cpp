@@ -4,7 +4,7 @@ public:
         return com(m+n-2,max(m-1,n-1));
         
     }
-    long long fact(int n, int start =1){
+    long long fact(int n, int start=1){
         long long res=1;
         
         for(int i=start;i<=n;i++){
