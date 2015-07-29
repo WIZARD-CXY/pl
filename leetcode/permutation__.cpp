@@ -7,6 +7,7 @@ public:
            res.push_back(temp);
            return;
         }
+        
         for(int i=0; i<nums.size(); i++){
             auto pos =find(temp.begin(),temp.end(),nums[i]);
             

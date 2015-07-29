@@ -7,8 +7,7 @@ public:
         
         helper(path,0,nums);
         
-        return res;
-        
+        return res;     
     }
     
     void helper(vector<int> &path,int cur,vector<int> &nums){

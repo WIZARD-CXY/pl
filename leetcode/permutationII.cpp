@@ -3,7 +3,6 @@ public:
     vector<vector<int> > res;
     void solve(int n, vector<int> &temp, vector<int> &nums,vector<bool> &used){
         if(temp.size()==n){
-            
             res.push_back(temp);
             return;
         }
@@ -21,7 +20,6 @@ public:
         }
     }
     vector<vector<int> > permuteUnique(vector<int>& nums) {
-        
         sort(nums.begin(),nums.end());
         vector<bool> used(nums.size(),0);
         vector<int> temp;
