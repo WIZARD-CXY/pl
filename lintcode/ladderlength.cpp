@@ -8,8 +8,7 @@ public:
       */
     int ladderLength(string start, string end, unordered_set<string> &dict) {
         // write your code here
-        
-        // use bfs searh 
+        // use bfs search 
         queue<string> qq;
         qq.push(start);
         int count=1;

@@ -4,7 +4,6 @@ public:
     vector<string> temp_path;
 
     vector<vector<string>> findLadders(string start, string end, unordered_set<string> &dict) {
-        
         if(start == end){
             return res;
         }
@@ -18,7 +17,6 @@ public:
         bool found=false;
         
         while(!current.empty() && !found){
-
             for(auto &x: current){
                 unvisited.insert(x);
             }
@@ -62,7 +60,7 @@ public:
         
         if(now==start){
             res.push_back(temp_path);
-            // do not get temp_path dirty, reverse it in the res.back
+            // do not get temp_path dirty, since it is an reference, reverse it in the res.back
             reverse(res.back().begin(),res.back().end());
             temp_path.pop_back();
             return;

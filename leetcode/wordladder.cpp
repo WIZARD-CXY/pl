@@ -6,14 +6,14 @@ public:
         int level=1;
         int count=1;//indicate the level-th level unvisited variable count
         
-        //dict.erase(start);
+        
         while(!path.empty() && dict.size()>0){
             string cur = path.front();
             path.pop();
             count--;
             for(int i=0; i<cur.size(); i++){
                 string temp=cur;
-                // traversal all 25 case 'a' to 'z' except temp[i]
+                // traversal all 26 case 'a' to 'z' except temp[i]
                 for(char j='a'; j<='z'; j++){
                    if(temp[i]==j){
                        continue;
@@ -25,6 +25,7 @@ public:
                    }
                    if(dict.find(temp)!=dict.end()){
                        path.push(temp);
+                       //kind like prune
                        dict.erase(temp);
                    }
                 }    
