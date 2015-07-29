@@ -18,7 +18,7 @@ public:
         
         UNode* nnode = new UNode(node->label);
         
-        unordered_map<UNode*, UNode* > mm;
+        unordered_map<UNode*, UNode*> mm;
         mm[node]=nnode;
         
         queue<UNode*> qq;
