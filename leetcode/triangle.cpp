@@ -9,6 +9,8 @@ public:
         int largestSize=triangle[triangle.size()-1].size();
         
         int d[layer][largestSize];
+
+        // fill the bottom line
         for(int i=0; i<largestSize; i++){
             d[layer-1][i]=triangle[layer-1][i];
         }
