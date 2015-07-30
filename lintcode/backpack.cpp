@@ -1,15 +1,3 @@
-#include<iostream>
-#include<string>
-#include<vector>
-#include<sstream>
-#include<algorithm>
-#include<limits.h>
-#include<stack>
-#include<queue>
-#include<set>
-#include<cstring>
-using namespace std;
-
 class Solution {
 public:
     /**
@@ -22,7 +10,8 @@ public:
         int n=A.size();
         vector<vector<bool> > dp(n+1,vector<bool>(m+1,0));
         
-        // dp[i][j] means first i element can fit into a j size or not
+        // dp[i][j] means whether or not we can pick from some of
+        // first i element and  put it into a j sized pack
         // dp[i][j]=dp[i-1][j] || dp[i-1][j-A[i-1]]
         
         dp[0][0]=1;
@@ -33,12 +22,6 @@ public:
             }
         }
         
-        for(int i=0; i<=n; i++){
-            for(int j=0; j<=m; j++){
-                cout<<dp[i][j]<<" ";
-            }
-            cout<<endl;
-        }
         for(int i=m; i>=0; i--){
             if(dp[n][i]){
                 return i;
@@ -48,12 +31,3 @@ public:
         return 0;
     }
 };
-
-
-int main(){
-    Solution sln;
-    int m=11;
-    
-    cout<<sln.backPack(m,{2,3,5,7});
-}
-
