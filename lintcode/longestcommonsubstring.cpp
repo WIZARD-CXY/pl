@@ -10,7 +10,7 @@ public:
         int blen=B.size();
         
          // dp[i][j] means A[0..i) and B[0,j)'s longest common substring length
-        // includes the A[i-1] and B[j-1] 
+        //  includes the A[i-1] and B[j-1] 
         vector<vector<int> > dp(alen+1,vector<int>(blen+1,0));
         
         int res=0;

@@ -39,6 +39,7 @@ public:
         for(int i=n-2; i>=0; i--){
             rsum[i]=max(rsum[i+1]+nums[i],nums[i]);   
         }
+        
         for(int i=n-2; i>=0; i--){
             if(rsum[i]>curmax){
                 curmax=rsum[i];

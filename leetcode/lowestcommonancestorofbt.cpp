@@ -39,7 +39,7 @@ public:
         vector<TreeNode*> path1;
         dfs(root,p,path1);
         
-        //path2 record the roor to q's path
+        //path2 record the root to q's path
         vector<TreeNode*> path2;
         dfs(root,q,path2);
         
