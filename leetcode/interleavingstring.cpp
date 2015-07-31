@@ -10,12 +10,12 @@ public:
             return false;
         }
         
-        //dp[i][j] means using s1[0,i) and s2[0,j) whether can match s3[0,i+j)
+        // dp[i][j] means using s1[0,i) and s2[0,j) whether can match s3[0,i+j)
         // default all is false except dp[0][0]
         vector<vector<bool> > dp(m+1,vector<bool>(n+1,false));
         
         dp[0][0]=true;
-        // initial first colum using s1
+        // initial first column only using s1
         for(int i=1; i<=m; i++){
             if(s1[i-1]==s3[i-1]){
                dp[i][0]=true;
@@ -25,7 +25,7 @@ public:
            
         }
         
-        // initial first row using s2
+        // initial first row only using s2
         for(int j=1; j<=n; j++){
             if(s2[j-1]==s3[j-1]){
                dp[0][j]=true;

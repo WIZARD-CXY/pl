@@ -8,6 +8,7 @@ public:
         int layer=triangle.size();
         int largestSize=triangle[triangle.size()-1].size();
         
+        //d[i][j] means the min value we can get start from triangle[i][j] 
         int d[layer][largestSize];
 
         // fill the bottom line
