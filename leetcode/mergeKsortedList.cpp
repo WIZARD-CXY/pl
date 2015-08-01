@@ -22,6 +22,7 @@ public:
         
         ListNode *dummy = new ListNode(-1),*pre=dummy;
         
+        // push every list head into pq
         for(int i=0; i< lists.size(); i++){
             if(lists[i]){
                 pq.push(lists[i]);
@@ -32,6 +33,7 @@ public:
             ListNode *node = pq.top();
             pq.pop();
             
+            //push the next if not NULL
             if(node->next){
                 pq.push(node->next);
             }
