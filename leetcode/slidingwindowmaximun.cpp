@@ -7,7 +7,7 @@ public:
         
         for(int i=0; i<nums.size(); i++){
             if(!q.empty() && q.front()==i-k){
-                // window move right
+                // window move right, delete the leftmost one
                 q.pop_front();
             }
             

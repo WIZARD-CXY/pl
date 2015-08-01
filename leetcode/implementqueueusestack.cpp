@@ -34,7 +34,6 @@ public:
     
     // return the last element
     int back() {
-
         stack<int> temp;
         while(!s.empty()){
             //pop all the element to temp
@@ -42,7 +41,6 @@ public:
             s.pop();
         }
         return temp.top();
-
     }
 private:
     stack<int> s;
