@@ -51,6 +51,3 @@ public:
         return dummy->next;
     }
 };
-
-
-

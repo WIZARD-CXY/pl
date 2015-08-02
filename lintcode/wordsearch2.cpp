@@ -1,15 +1,3 @@
-#include<iostream>
-#include<string>
-#include<vector>
-#include<sstream>
-#include<algorithm>
-#include<limits.h>
-#include<stack>
-#include<queue>
-#include<set>
-#include<cstring>
-using namespace std;
-
 class Solution {
 public:
     /**
@@ -94,7 +82,6 @@ public:
         }
         
         //vis matrix
-        
         vector<vector<bool> > vis(m,vector<bool>(n,0));
         
         //insert every word into a trie
@@ -109,17 +96,7 @@ public:
         for(int i=0; i<m; i++){
             for(int j=0; j<n; j++){
                 if(!vis[i][j]){
-                    //valid search the next;
-                    s.push_back(board[i][j]);
-                
-                    if(search(s)){
-                       tmp.insert(s);
-                    }
-                
-                    if(isPrefix(s)){
-                        dfs(board,s,vis,tmp,i,j);
-                    }
-                    s.pop_back();
+                    dfs(board,s,vis,tmp,i,j);
                 }
             }
         }
@@ -138,54 +115,37 @@ public:
         return true;
     }
     void dfs(vector<vector<char> > &board, string &s, vector<vector<bool> >  &vis, set<string> &tmp,int x, int y){
-        //search the every four direction
+        // mark as visited
         vis[x][y]=1;
+        s.push_back(board[x][y]);
+                
+        if(search(s)){
+            tmp.insert(s);
+        }
+        
+        if(!isPrefix(s)){
+            //prune
+            vis[x][y]=0;
+            s.pop_back();
+            
+            return;
+        }
         
         int dx[]={0,-1,0,1};
         int dy[]={1,0,-1,0};
         
         for(int i=0; i<4; i++){
-            //search right, up, left, down 
+            //search right, up, left, down 4 direction
             int xx=x+dx[i];
             int yy=y+dy[i];
             
             if(isValid(board,xx,yy,vis)){
                 //valid search the next;
-                s.push_back(board[xx][yy]);
-                
-                if(search(s)){
-                   tmp.insert(s);
-                }
-                
-                if(isPrefix(s)){
-                    dfs(board,s,vis,tmp,xx,yy);
-                }
-                s.pop_back();
+                dfs(board,s,vis,tmp,xx,yy);
             }
         }
         
         vis[x][y]=0;
+        s.pop_back();
     }
 };
-
-
-
-int main(){
-    Solution sln;
-    vector<vector<char> > board(3,vector<char>(4));
-    board[0]={'d','o','a','f'};
-    board[1]={'a','g','a','i'};
-    board[2]={'d','c','a','n'};
-
-    vector<string> words;
-    words.push_back("dog");
-    words.push_back("dad");
-    words.push_back("dgdg");
-    words.push_back("can");
-    words.push_back("again");
-
-
-    
-    sln.wordSearchII(board,words);
-}
-

@@ -1,6 +1,5 @@
 class Solution {
 public:
-    
     bool dfs(vector<vector<char> > &board,string &word, int index, int i, int j, vector<vector<bool> > &vis){
         if(index==word.size()){
             return true;
