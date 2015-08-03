@@ -10,9 +10,9 @@ public:
             while(pre->next && pre->next->val <= cur->val){
                 pre=pre->next;
             }
-            //save the head->next first
+            //save the cur->next first
             ListNode *temp = cur->next;
-            //insert head into the list following cur
+            //insert cur into the list following pre
             cur->next=pre->next;
             pre->next=cur;
             

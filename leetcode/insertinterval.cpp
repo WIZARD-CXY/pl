@@ -7,7 +7,6 @@ class Solution {
     vector<Interval>::iterator it = intervals.begin();  
     for(;it!=intervals.end(); it++){
         if(it->end < newInterval.start){
-            //
             res.push_back(*it);
         }else if(it->start > newInterval.end){
             res.push_back(newInterval);
