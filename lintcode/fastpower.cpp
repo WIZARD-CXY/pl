@@ -13,13 +13,12 @@ public:
             return a%b;
         }
         
-        //long long here avoid oveflow of res
-        long long res=fastPower(a,b,n>>1)%b;
-        
-        res=(res*res)%b;
+        int res=fastPower(a,b,n>>1)%b;
+        // when multiply first convert to long long
+        res=(long long)res*res%b;
         
         if(n&1){
-            res=res*a%b;
+            res=(long long)res*a%b;
         }
     
         return res;

@@ -4,6 +4,7 @@ public:
         int len=s.size();
         int p=len-1;
         
+        // remove trailing ' '
         while(p>=0 && s[p]==' '){
             p--;
         }

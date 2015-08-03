@@ -1,15 +1,3 @@
-#include<iostream>
-#include<string>
-#include<vector>
-#include<sstream>
-#include<algorithm>
-#include<limits.h>
-#include<stack>
-#include<queue>
-#include<set>
-#include<cstring>
-using namespace std;
-
 class Solution {
 public:
     /**
@@ -35,7 +23,7 @@ public:
                 continue;
             }
             
-            if(s[end]==s[start] || abs(s[end]-s[start])==abs('a'-'A')){
+            if(s[end]==s[start] || abs(s[end]-s[start])==abs('A'-'a')){
                 start++;
                 end--;
                 continue;
@@ -46,18 +34,9 @@ public:
     }
     
     bool isvalid(char c){
-        if((c>='a' && c<= 'z') || (c>='A' && c <= 'Z')){
+        if((c>='a' && c<= 'z') || (c>='A' && c <= 'Z') || (c>='0' && c<='9')){
             return true;
         }
         return false;
     }
 };
-
-
-int main(){
-    Solution sln;
-    string s="aA";
-    
-    cout<<sln.isPalindrome(s);
-}
-
