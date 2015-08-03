@@ -1,15 +1,3 @@
-#include<iostream>
-#include<string>
-#include<vector>
-#include<sstream>
-#include<algorithm>
-#include<limits.h>
-#include<stack>
-#include<queue>
-#include<set>
-#include<cstring>
-using namespace std;
-
 class Solution {
 public:
     /**
@@ -38,10 +26,13 @@ public:
                 if(!vis[i][j]){
                     helper(board,word,0,vis,i,j);
                 }
+                if(res){
+                    return res;
+                }
             }
         }
         
-        return res;
+        return false;
     }
     //dfs 
     void helper(vector<vector<char> > &board, string &word, int index, vector<vector<bool> > &vis , int x, int y){
@@ -57,12 +48,13 @@ public:
             // current not equal so prune
             return;
         }
-        //currently match
-        if(index==word.size()){
+        
+         //currently match
+        if(index==word.size()-1){
             res=true;
             return;
         }
-        
+       
         vis[x][y]=1;
         
         // use dfs to search 4 direction
@@ -71,31 +63,14 @@ public:
         for(int i=0; i<4; i++){
             int xx=x+dx[i];
             int yy=y+dy[i];
+            
             helper(board,word,index+1,vis,xx,yy);
+            if(res){
+                //if res=true, prune the other direc search
+                return;
+            }
+            
         }
         vis[x][y]=0;
     }
 };
-
-
-
-
-int main(){
-    Solution sln;
-    vector<vector<char> > board(3,vector<char>(4));
-    board[0]={'A','B','C','E'};
-    board[1]={'S','F','C','S'};
-    board[2]={'A','D','E','E'};
-
-    vector<string> words;
-    words.push_back("dog");
-    words.push_back("dad");
-    words.push_back("dgdg");
-    words.push_back("can");
-    words.push_back("again");
-
-
-    
-    sln.exist(board,"ABCCED");
-}
-
