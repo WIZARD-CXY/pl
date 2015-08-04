@@ -28,7 +28,7 @@ public:
         
         for(int i=start; i<s.size(); i++){
             if(isPalindrome(s,start,i)){
-                // the start to i string is palindrom, continue to find
+                // the start to i string is palindrom, continue to find i+1
                 path.push_back(s.substr(start,i-start+1));
                 dfs(s,i+1,path);
                 path.pop_back();

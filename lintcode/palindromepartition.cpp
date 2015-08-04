@@ -1,15 +1,3 @@
-#include<iostream>
-#include<string>
-#include<vector>
-#include<sstream>
-#include<algorithm>
-#include<limits.h>
-#include<stack>
-#include<queue>
-#include<set>
-#include<cstring>
-using namespace std;
-
 class Solution {
 public:
     /**
@@ -27,17 +15,17 @@ public:
         return res;
 
     }
-    void dfs(vector<vector<string> > &res, vector<string> &tmp, string &s, int index){
-        if(index==s.size()){
+    void dfs(vector<vector<string> > &res, vector<string> &tmp, string &s, int start){
+        if(start==s.size()){
             res.push_back(tmp);
             return;
         }
         
-        for(int len=1; index+len<=s.size(); len++){
-            string ss=s.substr(index,len);
+        for(int len=1; start+len<=s.size(); len++){
+            string ss=s.substr(start,len);
             if(isPalin(ss)){
                 tmp.push_back(ss);
-                dfs(res,tmp,s,index+len);
+                dfs(res,tmp,s,start+len);
                 tmp.pop_back();
             }
         }
@@ -55,13 +43,3 @@ public:
         return true;
     }
 };
-
-
-
-int main(){
-    Solution sln;
-    string s="bb";
-    
-    sln.partition(s);
-}
-

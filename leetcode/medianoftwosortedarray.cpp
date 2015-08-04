@@ -28,7 +28,7 @@ private:
             return min(nums1[0],nums2[0]);
         }
         
-        //divide k into tow parts
+        //divide k into two parts
         
         int mid1=min(k/2,m),mid2=k-mid1;
         
