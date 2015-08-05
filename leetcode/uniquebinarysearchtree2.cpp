@@ -30,6 +30,7 @@ public:
                     TreeNode* root= new TreeNode(k);
                     root->left=left[i];
                     root->right=right[j];
+                    
                     res.push_back(root);
                 }
             }
