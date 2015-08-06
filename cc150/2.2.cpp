@@ -1,6 +1,6 @@
 ListNode *kthtolast(ListNode *head, int k){
 	if(k<=0){
-		return NULL;
+		return NULL;	
 	}
 	ListNode *p1=head,*p2=head;
 

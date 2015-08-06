@@ -25,7 +25,7 @@ public:
         int r=A.size();
         
         while(l<r){
-            int m=(l+r)>>1;
+            int m=l+((r-l)>>1);
             
             if(A[m]>=target){
                 r=m;
@@ -42,7 +42,7 @@ public:
         int r=A.size();
         
         while(l<r){
-            int m=(l+r)>>1;
+            int m=l+((r-l)>>1);
             
             if(A[m]>target){
                 r=m;
