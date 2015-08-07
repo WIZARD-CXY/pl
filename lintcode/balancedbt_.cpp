@@ -18,30 +18,33 @@ public:
      */
     bool isBalanced(TreeNode *root) {
         // write your code here
-        int depth;
-        
-        return helper(root, depth);
-    }
-    
-    bool helper(TreeNode *root, int &depth){
-        if(root==NULL){
-            depth=0;
+        if(checkH(root)==-1){
+            return false;
+        }else{
             return true;
         }
-        
-        int ld,rd;
-        
-        bool res=helper(root->left,ld) && helper(root->right,rd);
-        depth=max(ld,rd)+1;
-        
-        if(res){
-            // left sub tree is balanced and right sub tree is balanced
-            // check whether their height
-            if(abs(ld-rd)<=1){
-                return true;
-            }
+    }
+    
+    int checkH(TreeNode *root){
+        if(root==NULL){
+            return 0;
         }
         
-        return false;
+        int lh=checkH(root->left);
+        if(lh==-1){
+            return -1;// left subtree is imba
+        }
+        
+        int rh=checkH(root->right);
+        
+        if(rh==-1){//right sub tree is imba
+            return -1;
+        }
+        
+        if(abs(lh-rh)>1){
+            return -1;
+        }else{
+            return max(rh,lh)+1;
+        }
     }
 };
