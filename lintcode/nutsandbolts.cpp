@@ -43,41 +43,30 @@ public:
     }
       
     int sortnuts(vector<string> &nuts, string pivot, int l, int r, Comparator &compare){
-        int i=l-1;
-        for(int j=l; j<=r; j++){
-            if(compare.cmp(pivot,nuts[j])==0){
-                swap(nuts[j],nuts[r]);
-                break;
+        int i=l-1,j=r+1;
+        for(int index=l; index<j; index++){
+            if(compare.cmp(nuts[index],pivot)==-1){
+                swap(nuts[++i],nuts[index]);
+            }else if (compare.cmp(nuts[index],pivot)==1){
+                swap(nuts[--j],nuts[index]);
+                index--;
             }
         }
-        
-        for(int j=l; j<r; j++){
-            if(compare.cmp(nuts[j],pivot)==-1){
-                //nuts[j] < pivot
-                swap(nuts[++i],nuts[j]);
-            }
-        }
-        swap(nuts[++i],nuts[r]);
-        return i;
+        return j-1;
     }
     
     int sortbolts(vector<string> &bolts, string pivot, int l, int r, Comparator &compare){
-        int i=l-1;
+        int i=l-1,j=r+1;
         
-        for(int j=l; j<=r; j++){
-            if(compare.cmp(pivot,bolts[j])==0){
-                swap(bolts[j],bolts[r]);
-                break;
+        for(int index=l; index<j; index++){
+            if(compare.cmp(pivot,bolts[index])==-1){
+                swap(bolts[--j],bolts[index]);
+                index--;
+            }else if(compare.cmp(pivot,bolts[index])==1){
+                swap(bolts[++i],bolts[index]);
             }
         }
         
-        for(int j=l; j<r; j++){
-            if(compare.cmp(bolts[j],pivot)==-1){
-                //bolts[j] < pivot
-                swap(bolts[++i],bolts[j]);
-            }
-        }
-        swap(bolts[++i],bolts[r]);
-        return i;
+        return j-1;
     }
 };
