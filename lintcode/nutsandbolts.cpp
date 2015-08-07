@@ -44,6 +44,12 @@ public:
       
     int sortnuts(vector<string> &nuts, string pivot, int l, int r, Comparator &compare){
         int i=l-1;
+        for(int j=l; j<=r; j++){
+            if(compare.cmp(pivot,nuts[j])==0){
+                swap(nuts[j],nuts[r]);
+                break;
+            }
+        }
         
         for(int j=l; j<r; j++){
             if(compare.cmp(nuts[j],pivot)==-1){
@@ -51,18 +57,27 @@ public:
                 swap(nuts[++i],nuts[j]);
             }
         }
-        return ++i;
+        swap(nuts[++i],nuts[r]);
+        return i;
     }
     
     int sortbolts(vector<string> &bolts, string pivot, int l, int r, Comparator &compare){
         int i=l-1;
         
         for(int j=l; j<=r; j++){
+            if(compare.cmp(pivot,bolts[j])==0){
+                swap(bolts[j],bolts[r]);
+                break;
+            }
+        }
+        
+        for(int j=l; j<r; j++){
             if(compare.cmp(bolts[j],pivot)==-1){
                 //bolts[j] < pivot
                 swap(bolts[++i],bolts[j]);
             }
         }
-        return ++i;
+        swap(bolts[++i],bolts[r]);
+        return i;
     }
 };
