@@ -10,104 +10,115 @@
 #include<cstring>
 using namespace std;
 
+/**
+ * class Comparator {
+ *     public:
+ *      int cmp(string a, string b);
+ * };
+ * You can use compare.cmp(a, b) to compare nuts "a" and bolts "b",
+ * if "a" is bigger than "b", it will return 1, else if they are equal,
+ * it will return 0, else if "a" is smaller than "b", it will return -1.
+ * When "a" is not a nut or "b" is not a bolt, it will return 2, which is not valid.
+*/
+
+void display(vector<string> s){
+    for(auto a:s){
+        cout<<a<<" ";
+    }
+    cout<<endl;
+}
 class Solution {
 public:
     /**
-     * @param matrix: a matrix of integers
-     * @param k: an integer
-     * @return: the kth smallest number in the matrix
+     * @param nuts: a vector of integers
+     * @param bolts: a vector of integers
+     * @param compare: a instance of Comparator
+     * @return: nothing
      */
-    //a node for matrix node
-    struct HeapNode{
-        int val;
-        int r;
-        int c;
-        HeapNode(int v, int row, int col):val(v),r(row),c(col){}
-        HeapNode():val(0),r(0),c(0){}
-    };
-    void swap(HeapNode &a, HeapNode &b){
-        HeapNode c=a;
+    void sortNutsAndBolts(vector<string> &nuts, vector<string> &bolts) {
+        // write your code here
+        
+        helper(nuts,bolts,0,nuts.size()-1);
+    }
+    
+    void swap(string &a, string &b){
+        string c=a;
         a=b;
         b=c;
     }
-    // min heapify on a HeapNode array
-    void minheapify(HeapNode a[], int i, int heapsize){
-        int l=2*i+1;
-        int r=2*i+2;
-        
-        int smallest=i;
-        if(l<heapsize && a[l].val<a[smallest].val){
-            smallest=l;
+    
+    void helper(vector<string> &nuts, vector<string> &bolts, int l, int r){
+        if(l<r){
+            //use bolts[l] as pivot to partition nuts
+            string pivot=bolts[l];
+            int idx=sortnuts(nuts,pivot,l,r);
+            //use nuts[idx] to partition bolts
+            sortbolts(bolts,nuts[idx],l,r);
+
+            // recursively call 
+            helper(nuts,bolts,l,idx-1);
+            helper(nuts,bolts,idx+1,r);
+        }
+
+    }
+      
+    int sortnuts(vector<string> &nuts, string pivot, int l, int r){
+        int i=l-1;
+        int temp;
+
+        for(int j=l; j<=r; j++){
+            if(nuts[j]==pivot){
+                swap(nuts[j],nuts[r]);
+                break;
+            }
         }
         
-        if(r<heapsize && a[r].val<a[smallest].val){
-            smallest=r;
+        for(int j=l; j<r; j++){
+            if(nuts[j]<pivot){
+                //nuts[j] < pivot
+                swap(nuts[++i],nuts[j]);
+            }
         }
+        swap(nuts[++i],nuts[r]);
         
-        if(smallest!=i){
-            swap(a[i],a[smallest]);
-            minheapify(a,smallest,heapsize);
-        }
+        display(nuts);
+        return i;
     }
     
-    void buildminheap(HeapNode a[],int heapsize){
-        for(int i=(heapsize-1)/2; i>=0; i--){
-            minheapify(a,i,heapsize);
-        }
-    }
-    int kthSmallest(vector<vector<int> > &matrix, int k) {
-        // write your code here
-        int n=matrix[0].size();
-        int m=matrix.size();
-        
-        if(k<0 || k>m*n){
-            return INT_MAX;
+    int sortbolts(vector<string> &bolts, string pivot, int l, int r){
+        int i=l-1;
+        int temp;
+
+        for(int j=l; j<=r; j++){
+            if(bolts[j]==pivot){
+                swap(bolts[j],bolts[r]);
+                break;
+            }
         }
         
-        //initial the first row as HeapNode row
-        HeapNode a[n];
-        for(int j=0; j<n; j++){
-            a[j]=HeapNode(matrix[0][j],0,j);
+        for(int j=l; j<r; j++){
+            if(bolts[j] < pivot){
+                //bolts[j] < pivot
+                swap(bolts[++i],bolts[j]);
+            }
         }
-        
-        //buildminheap(a,n);
-        
-        HeapNode hr;
-        // iterate k times 
-        while(k--){
-            hr=a[0];
-            // push the same col next row val in the heap
-            int nextval=(hr.r+1<m)?matrix[hr.r+1][hr.c]:INT_MAX;
-            a[0]=HeapNode(nextval,hr.r+1,hr.c);
-            minheapify(a,0,n);
-        }
-        
-        return hr.val;
+
+        swap(bolts[++i],bolts[r]);
+        display(bolts);
+        return i;
     }
 };
 
 
 int main(){
     Solution sln;
-    vector<int> vec={1};
-    vector<int> avec={2};
-    vector<int> bvec={3};
-    vector<int> cvec={100};
-    vector<int> dvec={101};
-    vector<int> evec={1000};
-    vector<int> fvec={9999};
+    vector<string> nuts={"a","b","d","e","c"};
+    vector<string> bolts={"b","e","c","a","d"};
     
-    
-    vector<vector<int> > v;
-    v.push_back(vec);
-    v.push_back(avec);
-    v.push_back(bvec);
-    v.push_back(cvec);
-    v.push_back(dvec);
-    v.push_back(evec);
-    v.push_back(fvec);
+    sln.sortNutsAndBolts(nuts,bolts);
+
    
-    
-    cout<<sln.kthSmallest(v,5);
+
+
 }
 
