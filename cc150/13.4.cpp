@@ -87,9 +87,7 @@ public:
 	        m_pchString = 0;
 	 
 	    return *this;
-	}
-
-    
+	}  
 
 };
 

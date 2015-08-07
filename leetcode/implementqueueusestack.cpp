@@ -4,7 +4,7 @@ public:
     void push(int x) {
         stack<int> temp;
         while(!s.empty()){
-            //pop all the element to temp
+            //pop all the s elements to temp
             temp.push(s.top());
             s.pop();
         }

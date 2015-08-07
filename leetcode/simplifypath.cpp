@@ -4,6 +4,7 @@ public:
         stack<string> ss;
         
         for(int i=0; i<path.size();){
+            //skip "/"
             while(i<path.size() && path[i]=='/'){
                 i++;
             }
@@ -34,10 +35,8 @@ public:
         while(!ss.empty()){
             res="/"+ss.top()+res;
             ss.pop();
-            
         }
         
         return res;
-        
     }
 };

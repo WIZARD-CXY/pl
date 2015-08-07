@@ -4,7 +4,6 @@ public:
         int tlen=t.size();
         int slen=s.size();
         
-        // st
         if(tlen==0 || slen<tlen){
             return "";
         }
