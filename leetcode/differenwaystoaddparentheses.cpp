@@ -1,7 +1,6 @@
 class Solution {
 public:
     vector<int> diffWaysToCompute(string input) {
-        
         int val=0,i=0;
         for(; i<input.size(); i++){
             if(isdigit(input[i])){
