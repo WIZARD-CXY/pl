@@ -1,5 +1,6 @@
 class Solution {
 public:
+    //check whether s[i..j] is palindrome
     bool isPal(string &s, int i, int j){
         if(i>j){
             return 0;
@@ -31,7 +32,7 @@ public:
         f.assign(n,vector<int>(n,-1));
         
         //dp[i] indicate the s[0..i]'s min cut
-        //dp[i]=min(d[k]+1,d[k]+i-k), 0<=k<i
+        //dp[i]=min(d[k]+1 or d[k]+i-k), min is ops to 0<=k<i
         //d[k]+1 means s[k+1..i] is palindrome
         //dp[k]+i-k means s[k+1..i] is not palindrome, worst case split every char
         
@@ -50,7 +51,7 @@ public:
                     if(isPal(s,k+1,i)){
                         temp=dp[k]+1;
                     }else{
-                        temp=dp[k]+i-k;//s
+                        temp=dp[k]+i-k;//worst case
                     }
                     if(temp<dp[i]){
                       dp[i]=temp;  
