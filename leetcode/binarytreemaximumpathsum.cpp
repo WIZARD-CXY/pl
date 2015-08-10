@@ -33,9 +33,10 @@ public:
         if(rsum>0){
             sum+=rsum;
         }
+        
         maxSum=max(maxSum,sum);
         
-        // if lsum and rsum both <0, then return root->val
+        // if lsum and rsum both<0, then return root->val
         // or rerturn their largest add root->val        
         return max(lsum,rsum)>0?max(lsum,rsum)+root->val:root->val;
         
