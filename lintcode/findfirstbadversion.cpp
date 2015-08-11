@@ -12,7 +12,7 @@ public:
      * @param n: An integers.
      * @return: An integer which is the first bad version.
      */
-    //just get lower_bound 
+    // just get lower_bound 
     // ok ok ok wrong wrong wrong return first version is wrong
     int findFirstBadVersion(int n) {
         // write your code here

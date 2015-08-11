@@ -16,6 +16,7 @@ public:
         
         inorder(node->left,idx,k,res);
         idx++;
+
         if(idx==k){
             res=node->val;
             return;
@@ -23,6 +24,7 @@ public:
         if(idx>k){
             return;// prune
         }
+        
         inorder(node->right,idx,k,res);
     }
     int kthSmallest(TreeNode* root, int k) {
