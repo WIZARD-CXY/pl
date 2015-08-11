@@ -28,9 +28,9 @@ public:
         
         if(pre!=NULL && pre->val>root->val){
             if(large == NULL){
-                large=pre;//only record once
+                large=pre; //only record once
             }
-            small=root;//always update small
+            small=root; //always update small
         }
         pre=root;
         

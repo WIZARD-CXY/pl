@@ -5,7 +5,6 @@ private:
        int value;
        CacheNode(int k, int v):key(k),value(v){}
    };
-    
 public:
     LRUCache(int capacity) {
         this->capacity=capacity;
@@ -43,6 +42,7 @@ public:
     }
 private:
     list<CacheNode> cacheList;
+    // key is key, value is pointer that point to the node
     unordered_map<int,list<CacheNode>::iterator> cacheMap;
     int capacity;
 };

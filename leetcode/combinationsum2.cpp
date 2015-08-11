@@ -18,7 +18,7 @@ public:
         
         int previous=-1;
         
-        for(int i=start ; i<candidates.size(); i++){
+        for(int i=start; i<candidates.size(); i++){
             if(target < candidates[i]){
                 return; //prune
             }
