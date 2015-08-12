@@ -34,8 +34,5 @@ public:
                 p->right=ss.top();
             }
         }
-        
-        
-        
     }
 };

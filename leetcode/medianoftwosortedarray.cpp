@@ -29,11 +29,12 @@ private:
         }
         
         //divide k into two parts
-        
         int mid1=min(k/2,m),mid2=k-mid1;
         
         vector<int>::iterator iter;
+
         if(nums1[mid1-1]<nums2[mid2-1]){
+            //safely ignore the mid1 number of elements in num1
             iter=nums1.begin();
             for(int i=0; i<mid1; i++){
                 iter++;
@@ -45,9 +46,9 @@ private:
             for(int i=0; i<mid2;i++){
                 iter++;
             }
+            //safely ignore the mid2 number of elements in num2
             nums2.assign(iter,nums2.end());
-            return find_kth(nums1,nums1.size(),nums2,nums2.size(),k-mid2);
-            
+            return find_kth(nums1,nums1.size(),nums2,nums2.size(),k-mid2);     
         }else{
             return nums1[mid1-1];
         }

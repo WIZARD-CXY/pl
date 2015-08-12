@@ -11,7 +11,7 @@ public:
         // cal min and max;
         int Min=nums[0],Max=nums[0];
         
-        for(int  i=1; i<nums.size(); i++){
+        for(int i=1; i<nums.size(); i++){
             Min=min(nums[i],Min);
             Max=max(nums[i],Max);
         }
