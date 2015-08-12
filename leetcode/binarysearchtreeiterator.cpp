@@ -12,7 +12,6 @@ public:
     stack<TreeNode*> s;
     BSTIterator(TreeNode *root) {
         pushroot(root);
-        
     }
 
     /** @return whether we have a next smallest number */
