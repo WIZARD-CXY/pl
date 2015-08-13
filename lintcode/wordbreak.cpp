@@ -1,11 +1,11 @@
 class Solution {
 public:
     bool wordBreak(string s, unordered_set<string>& wordDict) {
-        //dp[i]=1 means s[0..i) is breakable
-        
         if(s.size()==0){
             return true;
         }
+
+        //dp[i] means 0~i-1 is breakable
         vector<bool> dp(s.size()+1,0);
         
         dp[0]=1;
