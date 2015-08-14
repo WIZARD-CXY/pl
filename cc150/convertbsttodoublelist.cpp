@@ -13,16 +13,11 @@ struct TreeNode{
 
 TreeNode* insertNode(TreeNode *root, int val){
 	if(root==NULL){
-		root= new TreeNode(val);
+		root=new TreeNode(val);
 		return root;
 	}
 
-	if(val<=root->val){
-		//insert to the left sub tree
-		root->left=insertNode(root->left,val);
-	}else{
-		root->right=insertNode(root->right,val);
-	}
+	while()
 
 	return root;
 }
