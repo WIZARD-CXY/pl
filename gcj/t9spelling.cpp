@@ -12,8 +12,9 @@ int main(int argc, char* argv[]){
 
 	int n;
 	cin>>n;
-	string temp;
-	getline(cin,temp);
+    getchar();
+    cout<<n<<endl;
+
 
 	vector<string> mm={"2","22","222","3","33","333","4",
 	                 "44","444","5","55","555","6","66",
@@ -23,7 +24,7 @@ int main(int argc, char* argv[]){
 	for(int i=1; i<=n; i++){
 		string s;
 		getline(cin,s);
-		cout<<s.size()<<endl;
+		cout<<"-"<<s<<"-"<<endl;
 
   //       string res;
 
