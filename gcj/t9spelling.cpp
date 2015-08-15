@@ -22,6 +22,7 @@ int main(int argc, char* argv[]){
 	for(int i=1; i<=n; i++){
 		string s;
 		getline(cin,s);
+
         string res;
 
         cout<<"Case #"<<i<<": ";
