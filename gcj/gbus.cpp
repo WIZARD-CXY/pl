@@ -22,6 +22,8 @@
 #include <unordered_map>
 using namespace std;
 
+int counts[5001];
+
 int main(int argc, char* argv[]){
     // first parameter is testfile name
 	freopen(argv[1],"r",stdin);
@@ -30,7 +32,27 @@ int main(int argc, char* argv[]){
 	cin>>t;
 
 	for(int cas=1; cas<=t; cas++){
-		cout<<"Case #"<<cas<<": ";
+		cout<<"Case #"<<cas<<":";
+		memset(counts,0,sizeof(counts));
+		int n;
+		cin>>n;
+
+		for(int j=0; j<n; j++){
+			int st,en;
+			cin>>st>>en;
+			for(int k=st; k<=en; k++){
+				counts[k]++;
+			}
+		}
+
+		int p;
+		cin>>p;
+		while(p--){
+			int city;
+			cin>>city;
+			cout<<" "<<counts[city];
+		}
+		cout<<endl;
 	}
 
 }
