@@ -106,6 +106,7 @@ void printTree(TreeNode *root){
 }
 int main(){
 	TreeNode *root=NULL;
+	
 	srand(time(NULL));
 	cout<<"Inserting data..."<<endl;
 
@@ -126,6 +127,4 @@ int main(){
 	root=BST2List(root);
 	cout<<"the list is"<<endl;
 	printList(root);
-	cout<<"   ";
-	
 }
