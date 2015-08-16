@@ -36,6 +36,7 @@ bool dfs(int u, int col){
 			return true;
 		}
 	}
+	//color it as col
 	color[u]=col;
 
 	for(int i=0; i<adjlist[u].size(); i++){

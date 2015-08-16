@@ -1,18 +1,3 @@
-#include<iostream>
-#include<string>
-#include<vector>
-#include<sstream>
-#include<algorithm>
-#include<limits.h>
-#include<stack>
-#include<queue>
-#include<set>
-#include<map>
-#include<unordered_map>
-#include<unordered_set>
-#include<cstring>
-using namespace std;
-
 class Solution {
 public:
    /**
@@ -72,7 +57,7 @@ public:
                 cur=cur->left;
             }else if(a>cur->val){
                 count+=1+cur->count;
-                cur
+                cur=cur->right;
             }else{
                 // a==cur->val
                 return count+cur->count;
@@ -93,14 +78,3 @@ public:
         return res;
     }
 };
-
-
-
-int main(){
-    Solution sln;
-    vector<int> s={1,2,7,8,5};
-    
-    sln.countOfSmallerNumberII(s);
-
-}
-
