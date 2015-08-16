@@ -17,7 +17,25 @@ TreeNode* insertNode(TreeNode *root, int val){
 		return root;
 	}
 
-	while()
+    TreeNode *cur=root;
+	
+	while(cur){
+		if(val<=cur->val){
+			if(cur->left){
+				cur=cur->left;
+			}else{
+				cur->left=new TreeNode(val);
+				break;
+			}
+		}else{
+			if(cur->right){
+				cur=cur->right;
+			}else{
+				cur->right=new TreeNode(val);
+				break;
+			}
+		}
+	}
 
 	return root;
 }

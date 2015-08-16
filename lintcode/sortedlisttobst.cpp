@@ -41,7 +41,7 @@ public:
         
         return helper(head,0,len-1);
     }
-    // may move head pointer
+    // move head pointer
     TreeNode* helper(ListNode* &head,int start, int end){
         if(start>end){
             return NULL;
