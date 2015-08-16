@@ -72,6 +72,7 @@ public:
                 cur=cur->left;
             }else if(a>cur->val){
                 count+=1+cur->count;
+                cur
             }else{
                 // a==cur->val
                 return count+cur->count;
