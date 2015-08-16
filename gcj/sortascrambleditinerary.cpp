@@ -22,7 +22,7 @@
 #include <unordered_map>
 using namespace std;
 vector<vector<int> > adjlist;
-vector<bool> vis;
+vector<int> vis;
 vector<int> res;
 int t;
 
