@@ -12,7 +12,7 @@ public:
         
         int total=m+n;
         
-        if(total &1){
+        if(total&1){
             //total odd element
             return findKthsmall(A.begin(),m,B.begin(),n,total/2+1);
         }else{
