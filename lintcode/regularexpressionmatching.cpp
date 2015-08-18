@@ -12,7 +12,7 @@ public:
         }
         
         if(*(p+1)!='*'){
-            //p[1]== 0 or alphabet or '.'
+            //p[1]== NULL or alphabet or '.'
             if(*p==*s || *p=='.' && *s!=0){
                 return isMatch(s+1,p+1);
             }else{
@@ -25,7 +25,6 @@ public:
                 if(isMatch(s++, p+2)){
                     return true; 
                 }
-                     
             }
             //not match 
             return isMatch(s,p+2);

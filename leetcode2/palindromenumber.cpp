@@ -14,15 +14,13 @@ public:
             int leftdigit=x/base;
             int rightdigit=x%10;
             
-            if(leftdigit != rightdigit){
+            if(leftdigit!=rightdigit){
                 return false;
             }
-            // remove the head and tail of x
+            
             x=x%base/10;
             base/=100;
-            
         }
-        
         return true;
     }
 };

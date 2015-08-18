@@ -1,4 +1,4 @@
-class Solution {
+ class Solution {
 public:
     bool isMatch(string s, string p) {
         if(p.size()==0) return s.size()==0;
@@ -16,7 +16,7 @@ public:
                 if(isMatch(s,p.substr(2))){
                     return true;
                 }
-                // move s one step forward
+                // move s one step forward match 0 or more char
                 s=s.substr(1);
             }
             return isMatch(s,p.substr(2));

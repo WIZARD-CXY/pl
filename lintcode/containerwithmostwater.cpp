@@ -24,7 +24,6 @@ public:
             if(heights[l]<heights[r]){
                 //l is　shortcomings
                 // try to find a higher height
-                
                 int k=l+1;
                 
                 while(k<r && heights[k]<heights[l]){
@@ -34,7 +33,6 @@ public:
             }else{
                 // r is shortcomings
                 // try to find a higher height
-                
                 int k=r-1;
                 while(k>l && heights[k]<heights[r]){
                     k--;

@@ -27,6 +27,13 @@ struct BitSet{
 	bool get(int idx){
 		int wordnumber=(pos>>5); // /32
 		int bitnumber=(pos&0x1f); //%32
-		bitset[wordnumber] |= 1<<bitnumber;
+		return (bitset[wordnumber] & (1<<bitnumber))!=0;
+	}
+
+	void set(int pos){
+		int wordnumber=(pos>>5);
+		int bitnumber=(pos&0x1f);
+
+		bitset[wordnumber]|= (1<<bitnumber);
 	}
 }
