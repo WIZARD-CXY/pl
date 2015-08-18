@@ -1,18 +1,3 @@
-#include<iostream>
-#include<string>
-#include<vector>
-#include<sstream>
-#include<algorithm>
-#include<limits.h>
-#include<stack>
-#include<queue>
-#include<set>
-#include<map>
-#include<unordered_map>
-#include<unordered_set>
-#include<cstring>
-using namespace std;
-void print(vector<int> &a); 
 class Solution {
 public:
     vector<int> singleNumber(vector<int>& nums) {
@@ -21,11 +6,10 @@ public:
         for(auto num : nums){
             tmp^=num;
         }
-        cout<<tmp<<endl;
         
         int diffpos=0;
         for(int i=0; i<32; i++){
-            if((tmp&(1<<i))){
+            if(tmp&(1<<i)){
                 diffpos=i;
                 break;
             }
@@ -33,8 +17,6 @@ public:
         
         vector<int> groupa;
         vector<int> groupb;
-        cout<<diffpos<<endl;                    
-
         
         for(auto num :nums){
             if(num&(1<<diffpos)){
@@ -43,8 +25,6 @@ public:
                 groupb.push_back(num);
             }
         }
-        print(groupa);
-        print(groupb);
         
         int a=0;
         
@@ -61,19 +41,3 @@ public:
         return {a,b};
     }
 };
-
-void print(vector<int> &a){
-    for(auto num : a){
-        cout<<num<<" ";
-    }
-    cout<<endl;
-}
-
-int main(){
-    Solution sln;
-    vector<int> s={1,2,1,3,5,2};
-    
-    sln.singleNumber(s);
-
-}
-
