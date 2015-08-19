@@ -22,6 +22,7 @@ public:
                     continue;
                 }
                 
+                //skip the same nums[k]
                 if(k<nums.size()-1 && nums[k]==nums[k+1]){
                     k--;
                     continue;

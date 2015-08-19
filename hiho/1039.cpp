@@ -14,7 +14,7 @@ int process(string s){
 		//s reduced to tmp
 
 		string tmp="";
-		//cout<<"--"<<s<<endl;
+	    cout<<"--"<<s<<endl;
 
 		int i=0,j=1;
 		for(; j<s.size(); j++){
@@ -26,6 +26,7 @@ int process(string s){
 					j++;
 				}
 			}
+			//a new start
 			i=j;
 		}
 		if(j==s.size()){
@@ -58,8 +59,9 @@ int main(){
 				string tmp=s;
 				tmp.insert(i,1,c);
 				// after merge the same one the last length
-				//cout<<"--------------"<<endl;
+				cout<<"--------------"<<endl;
 				int len=process(tmp);
+				cout<<"--------------"<<endl;
 				res=max(res,int(s.size())+1-len);
 			}
 		}
