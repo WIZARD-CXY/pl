@@ -17,7 +17,6 @@ public:
         int l=2*i+1;
         int r=2*i+2;
         
-        
         int smallest=i;
         
         if(l<heapsize && A[l]<A[smallest]){
