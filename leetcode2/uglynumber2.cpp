@@ -14,7 +14,7 @@ public:
              //i5 means the smallest index that makes ugly[i5]*5 > ugly[i]
             int minres=min(ugly[i2]*2,min(ugly[i3]*3,ugly[i5]*5));
             ugly[i]=minres;
-            if(minres==ugly[i2]*2){
+            if (minres==ugly[i2]*2){
                 i2++;
             }
             if (minres==ugly[i3]*3){
