@@ -1,26 +1,12 @@
-#include<iostream>
-#include<string>
-#include<vector>
-#include<sstream>
-#include<algorithm>
-#include<limits.h>
-#include<stack>
-#include<queue>
-#include<set>
-#include<map>
-#include<unordered_map>
-#include<unordered_set>
-#include<cstring>
-using namespace std;
-void print(vector<int> &a); 
-
-struct Point {
-      int x;
-      int y;
-      Point() : x(0), y(0) {}
-      Point(int a, int b) : x(a), y(b) {}
-};
- 
+/**
+ * Definition for a point.
+ * struct Point {
+ *     int x;
+ *     int y;
+ *     Point() : x(0), y(0) {}
+ *     Point(int a, int b) : x(a), y(b) {}
+ * };
+ */
 class Solution {
 public:
     /**
@@ -58,7 +44,6 @@ public:
             if(opfather==opidx){
                 cnt++;
             }
-            cout<<"cnt "<<cnt<<endl;
             vis[opidx]=true;
             
             // search 4 dirs
@@ -73,9 +58,11 @@ public:
                 int newid=newx*m+newy;
                 
                 if(vis.find(newid)!=vis.end()){
-                    //neighbour found;
+                    //previous visited neighbour found;
                     
                     int newfather=find(father,newid);
+                    //find again in case the opidx father is changed during the update 
+                    int opfather=find(father,opidx);
                     
                     if(newfather!=opfather){
                         cnt--;
@@ -86,38 +73,10 @@ public:
             }
             res.push_back(cnt);
         }
-
+        
         return res;
-        
-        
     }
     int find(unordered_map<int,int> &father, int x){
         return father[x]==x?x:father[x]=find(father,father[x]);
     }
 };
-
-
-void print(vector<int> &a){
-    for(auto num : a){
-        cout<<num<<" ";
-    }
-    cout<<endl;
-}
-
-int main(){
-    Solution sln;
-    Point a=Point(1,1);
-    Point b=Point(0,1);
-    Point c=Point(3,3);
-    Point d=Point(3,4);
-    vector<Point> pvec;
-    pvec.push_back(a);
-    pvec.push_back(b);
-    pvec.push_back(c);
-    pvec.push_back(d);
-
-    
-    sln.numIslands2(4,5,pvec);
-
-}
-
