@@ -16,7 +16,7 @@ public:
         dummy->next=head;
         
         ListNode *preGroup=dummy; // indicate the node which is pre of current group
-        ListNode *nextGroup=dummy;// indicate the node which is next to curren group
+        ListNode *nextGroup=dummy;// indicate the node which is next to current group
         // preGroup->first.....->last->nextGroup
         int count=0;//current group count
         ListNode *first=head,*last=head;
