@@ -22,6 +22,21 @@
 #include <unordered_map>
 using namespace std;
 
+void gen(vector<string> &res ,string path, int l, int r){
+	if(l==0 &&r==0){
+		res.push_back(path);
+		//cout<<path<<endl;
+		return;
+	}
+
+	if(l>0){
+		gen(res,path+'(',l-1,r);
+	}
+
+	if(r>0 && l<r){
+		gen(res,path+')',l,r-1);
+	}
+}
 int main(int argc, char* argv[]){
     // first parameter is testfile name
 	freopen(argv[1],"r",stdin);
@@ -31,15 +46,21 @@ int main(int argc, char* argv[]){
 
 	for(int cas=1; cas<=t; cas++){
 		cout<<"Case #"<<cas<<": ";
-		int n,k;
-		cin>>n>>k;
-        
-        vector<int> num(n);
-		for(int i=0; i<n; i++){
-			cin>>num[i];
-		}
 
-		
+		int n;
+		unsigned long long k;
+		cin>>n>>k;
+
+		vector<string> res;
+        string path="";
+
+		gen(res,path,n,n);
+
+		if(k>res.size()){
+			cout<<"Doesn't Exist!"<<endl;
+		}else{
+			cout<<res[k-1]<<endl;
+		}
 	}
 
 }
