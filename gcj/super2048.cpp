@@ -45,7 +45,7 @@ int main(int argc, char* argv[]){
 		}
 		
 		if(dir=="right"){
-			// move  0
+			// move across 0
 			for(int row=0; row<n; row++){
 				for(int col=n-1; col>=0; col--){
 					if(m[row][col]==0){
@@ -80,7 +80,7 @@ int main(int argc, char* argv[]){
 			}
 
 		}else if(dir == "left"){
-			// move 0
+			// move across 0
 			for(int row=0; row<n; row++){
 				for(int col=0; col<n; col++){
 					if(m[row][col]==0){
@@ -114,8 +114,7 @@ int main(int argc, char* argv[]){
 				}
 			}
 		}else if(dir=="up"){
-			// move 0
-
+			// move across 0
 			for(int col=0; col<n; col++){
 				for(int row=0; row<n; row++){
 					if(m[row][col]==0){
@@ -133,7 +132,6 @@ int main(int argc, char* argv[]){
 			}
 
 			//then merge
-			
 			for(int col=0; col<n; col++){
 				
 				for(int row=0; row<n-1; row++){
@@ -152,8 +150,7 @@ int main(int argc, char* argv[]){
 
 		}else{
 			// down
-			// move 0
-
+			// move across 0
 			for(int col=0; col<n; col++){
 				for(int row=n-1; row>=0; row--){
 					if(m[row][col]==0){
@@ -171,7 +168,6 @@ int main(int argc, char* argv[]){
 			}
 
 			//then merge
-			
 			for(int col=0; col<n; col++){
 				
 				for(int row=n-1; row>=1; row--){
