@@ -11,7 +11,7 @@ public:
         if(i<0){
             // already the last permutation  all non-increasing order,just reverse
             reverse(nums.begin(),nums.end());
-            return
+            return;
         }
         for(k=nums.size()-1; k>i; k--){
             if(nums[k]>nums[i]){

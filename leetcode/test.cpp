@@ -23,101 +23,49 @@ struct Point {
  
 class Solution {
 public:
-    /**
-     * @param n an integer
-     * @param m an integer
-     * @param operators an array of point
-     * @return an integer array
-     */
-    vector<int> numIslands2(int n, int m, vector<Point>& operators) {
-        // Write your code here
-        vector<int> res;
+    void nextPermutation(vector<int>& nums) {
+        int n=nums.size();
         
-        if(n==0 || m==0){
-            return res;
-        }
-        
-        int dx[]={0,1,0,-1};
-        int dy[]={-1,0,1,0};
-        
-        unordered_map<int,int> father;
-        unordered_map<int,bool> vis;
-        
-        
-        for(auto op : operators){
-            //set itself as father
-            father[op.x*m+op.y]=op.x*m+op.y;
-        }
-        
-        int cnt=0;
-        for(auto op : operators){
-            int opidx=op.x*m+op.y;
-            int opfather=find(father,opidx);
-            
-            //new group
-            if(opfather==opidx){
-                cnt++;
+        // from tail to head find the first decresing element
+        int i;
+        for(i=n-2; i>=0; i--){
+            if(nums[i]<nums[i+1]){
+                break;
             }
-            cout<<"cnt "<<cnt<<endl;
-            vis[opidx]=true;
-            
-            // search 4 dirs
-            for(int i=0; i<4; i++){
-                int newx=op.x+dx[i];
-                int newy=op.y+dy[i];
-                
-                if(newx<0 || newx>=n || newy<0 || newy>=m){
-                    continue;
-                }
-                
-                int newid=newx*m+newy;
-                
-                if(vis.find(newid)!=vis.end()){
-                    //neighbour found;
-                    
-                    int newfather=find(father,newid);
-                    
-                    if(newfather!=opfather){
-                        cnt--;
-                        //merge neighbour into one group
-                        father[min(newfather,opfather)]=max(newfather,opfather);
-                    }
-                }
-            }
-            res.push_back(cnt);
         }
-
-        return res;
         
+        if(i<0){
+            //already the last permutation
+            reverse(nums.begin(),nums.end());
+        }
+        //find the first element larger than nums[i]
+        int k=n-1;
         
-    }
-    int find(unordered_map<int,int> &father, int x){
-        return father[x]==x?x:father[x]=find(father,father[x]);
+        while(k>i){
+            if(nums[k]>nums[i]){
+                break;
+            }
+            k--;
+        }
+        
+        swap(nums[k],nums[i]);
+        reverse(nums.begin()+i+1,nums.end());
     }
 };
 
-
-void print(vector<int> &a){
-    for(auto num : a){
-        cout<<num<<" ";
+void print(vector<int> &v){
+    for(auto a :v){
+        cout<<a<<" ";
     }
-    cout<<endl;
 }
 
 int main(){
     Solution sln;
-    Point a=Point(1,1);
-    Point b=Point(0,1);
-    Point c=Point(3,3);
-    Point d=Point(3,4);
-    vector<Point> pvec;
-    pvec.push_back(a);
-    pvec.push_back(b);
-    pvec.push_back(c);
-    pvec.push_back(d);
+    vector<int> vec={1,2};
 
     
-    sln.numIslands2(4,5,pvec);
+    sln.nextPermutation(vec);
+    print(vec);
 
 }
 
