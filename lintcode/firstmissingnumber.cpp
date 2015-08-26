@@ -13,10 +13,11 @@ public:
         
         for(int i=0; i<n; i++){
             while(nums[i]!=i){
-                //swap the element
+                
                 if(nums[i]<0){
                     break;
                 }
+                //swap the element to make nums[i] in right pos
                 swap(nums[i],nums[nums[i]]);
                 
             }
