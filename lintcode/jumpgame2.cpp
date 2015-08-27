@@ -13,8 +13,8 @@ public:
         
         int res=0;
         
-        for(int i=0; i<A.size(); i++){
-            if(A[i]==0 && maxIdx==i && i!=A.size()-1){
+        for(int i=0; i<n; i++){
+            if(A[i]==0 && maxIdx==i && i!=n-1){
                 //can't move forward to get to dst
                 return -1;
             }

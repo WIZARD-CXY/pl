@@ -8,7 +8,7 @@ public:
         // write you code here
         int maxIdx=0;
         
-        for(int i=0; i<A.size();i++){
+    for(int i=0; i<A.size();i++){
             maxIdx=max(i+A[i],maxIdx);
             if(maxIdx>=A.size()-1){
                 return true;
