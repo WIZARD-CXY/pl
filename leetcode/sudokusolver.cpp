@@ -39,9 +39,11 @@ public:
                 if(board[i][j]=='.'){
                     for(char c='1'; c<='9'; c++){
                         board[i][j]=c;
+
                         if(isValid(board,i,j) && solve(board)){
                             return true;
                         }
+                        
                         board[i][j]='.';
                     }
                     return false;
