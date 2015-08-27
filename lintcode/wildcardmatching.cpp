@@ -29,9 +29,8 @@ public:
                 smatch=sp;
                 continue;
             }
-            
             if(pstar<plen){
-                //try to match with 1 or more chars
+                // try to match with 1 or more chars
                 // like abcd a*d
                 sp=++smatch;
                 pp=pstar+1;
@@ -40,7 +39,7 @@ public:
             return false;
         }
         
-        while(pp <plen && p[pp]=='*'){
+        while(pp<plen && p[pp]=='*'){
             pp++;
         }
         return pp==plen;
