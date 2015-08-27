@@ -29,8 +29,9 @@ public:
         }
         
         for(int i=0; i<nums.size(); i++){
-            if(vis[i] || (i!=0 && nums[i]==nums[i-1]) && vis[i-1]){
-                //current number is same with previous one and previous one is visited
+            if(vis[i] || i!=0 && nums[i]==nums[i-1] && vis[i-1]){
+                // current number is same with previous one and previous one is visited
+                // don't use it
                 continue;
             }
             
