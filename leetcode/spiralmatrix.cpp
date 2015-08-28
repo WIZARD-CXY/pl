@@ -41,7 +41,7 @@ public:
             }
             //travese from down to up
             for(int i=rx-1;i>=lx+1; i--){ // 4
-                res.push_back(matrix[i][lx]);
+                res.push_back(matrix[i][ly]);
             }
             // move the up left conner right-down and down right corner left up 
             lx++;
