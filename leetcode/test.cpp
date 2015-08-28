@@ -14,58 +14,48 @@
 using namespace std;
 void print(vector<int> &a); 
 
-struct Point {
-      int x;
-      int y;
-      Point() : x(0), y(0) {}
-      Point(int a, int b) : x(a), y(b) {}
-};
- 
 class Solution {
 public:
-    void nextPermutation(vector<int>& nums) {
-        int n=nums.size();
-        
-        // from tail to head find the first decresing element
-        int i;
-        for(i=n-2; i>=0; i--){
-            if(nums[i]<nums[i+1]){
-                break;
-            }
+    double myPow(double x, int n) {
+        if(n<0){
+            // in case n==INT_MIN promot to long long
+            return 1.0/helper(x,-n);
+        }
+        return helper(x,n);
+    }
+    
+    double helper(double x, int n){
+        cout<<"helper "<<n<<endl;
+        if(n==0){
+            return 1.0;
         }
         
-        if(i<0){
-            //already the last permutation
-            reverse(nums.begin(),nums.end());
-        }
-        //find the first element larger than nums[i]
-        int k=n-1;
-        
-        while(k>i){
-            if(nums[k]>nums[i]){
-                break;
-            }
-            k--;
+        if(n==1){
+            return x;
         }
         
-        swap(nums[k],nums[i]);
-        reverse(nums.begin()+i+1,nums.end());
+        double tmp=helper(x,n>>1);
+        double res=tmp*tmp;
+        
+        if(n&1){
+            res*=x;
+        }
+        
+        return res;
     }
 };
-
-void print(vector<int> &v){
-    for(auto a :v){
-        cout<<a<<" ";
-    }
-}
 
 int main(){
     Solution sln;
-    vector<int> vec={1,2};
 
-    
-    sln.nextPermutation(vec);
-    print(vec);
+    //cout<<sln.myPow(1.000000,INT_MIN);
+
+    int a=INT_MIN;
+    while(a){
+        cout<<a<<endl;
+        a/=2;
+    }
+    //cout<<-(INT_MIN+1)<<" "<<INT_MIN<<endl;
 
 }
 
