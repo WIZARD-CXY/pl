@@ -2,6 +2,7 @@ class Solution {
 public:
     vector<vector<int>> generateMatrix(int n) {
         vector<vector<int> >res;
+        
         res.assign(n,vector<int>(n,0));
         int lx=0,ly=0;
         int rx=n-1,ry=n-1;
