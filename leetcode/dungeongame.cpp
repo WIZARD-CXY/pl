@@ -4,7 +4,7 @@ public:
         int m=dungeon.size();
         int n=dungeon[0].size();
         
-        int dp[m][n];//dp[i][j] means the minimum hp to [m-1][n-1]
+        int dp[m][n];//dp[i][j] means the minimum hp from [i][j] to [m-1][n-1]
         
         dp[m-1][n-1]=max(0-dungeon[m-1][n-1],0);
         
