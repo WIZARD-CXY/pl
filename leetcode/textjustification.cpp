@@ -24,12 +24,12 @@ public:
             }
         }
         //add last line
-        string temp=addSpaceLastline(words,start,words.size(),maxWidth,len);
+        string temp=addSpaceLastline(words,start,words.size(),maxWidth);
         res.push_back(temp);
         return res;
         
     }
-    string addSpaceLastline(vector<string> &words, int start, int end, int maxWidth, int len){
+    string addSpaceLastline(vector<string> &words, int start, int end, int maxWidth){
         string temp=words[start];
         for(int i=start+1; i<end; i++){
             temp+=" "+words[i];
@@ -67,4 +67,4 @@ public:
        
        return temp;
     }
-};kb
+};
