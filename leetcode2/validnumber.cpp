@@ -87,7 +87,7 @@ public:
             }
             return isPureNumber(ss1) && isPureNumber(ss2);
         }
-        return isPureNumber(s);
+        return isPureNumber(s);x
         
     }
     

@@ -14,12 +14,13 @@ public:
         vector<vector<int> > dp(m+1,vector<int>(n+1,0));
         
         for(int j=0; j<=n; j++){
-            dp[0][j]=j;//insert new element to change to words2
+            //insert new element to change to words2
+            dp[0][j]=j;
         }
         
         for(int i=0; i<=m; i++){
-            //insert new element
-            dp[i][0]=i; // delete element to change to empty word2
+            // delete element to change to empty word2
+            dp[i][0]=i;
         }
         
         for(int i=1; i<=m; i++){
