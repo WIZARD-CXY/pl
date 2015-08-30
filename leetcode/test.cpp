@@ -13,49 +13,42 @@
 #include<cstring>
 using namespace std;
 void print(vector<int> &a); 
-
 class Solution {
 public:
-    double myPow(double x, int n) {
-        if(n<0){
-            // in case n==INT_MIN promot to long long
-            return 1.0/helper(x,-n);
-        }
-        return helper(x,n);
-    }
-    
-    double helper(double x, int n){
-        cout<<"helper "<<n<<endl;
-        if(n==0){
-            return 1.0;
-        }
+    int mySqrt(int x) {
+        cout<<LONG_MAX<<" "<<LONG_MIN<<endl;
+        int l=0;
+        int r=x/2+2;
         
-        if(n==1){
-            return x;
-        }
-        
-        double tmp=helper(x,n>>1);
-        double res=tmp*tmp;
-        
-        if(n&1){
-            res*=x;
+        while(l<r){
+            int mid=l+((r-l)>>1);
+            long long tmp=(long long)mid*mid;
+            cout<<mid<<" "<<tmp<<endl;
+            
+            if(x==tmp){
+                return mid;
+            }else if (x<tmp){
+               r=mid;
+            }else{
+               l=mid+1;
+            }
         }
         
-        return res;
+        return l-1;
     }
 };
 
 int main(){
     Solution sln;
 
-    //cout<<sln.myPow(1.000000,INT_MIN);
+    cout<<sln.mySqrt(2147395599);
 
     int a=INT_MIN;
     while(a){
         cout<<a<<endl;
         a/=2;
     }
-    //cout<<-(INT_MIN+1)<<" "<<INT_MIN<<endl;
+    cout<<-INT_MIN-1<<" "<<INT_MIN<<endl;
 
 }
 
