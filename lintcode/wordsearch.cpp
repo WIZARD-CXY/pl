@@ -66,7 +66,7 @@ public:
             
             helper(board,word,index+1,vis,xx,yy);
             if(res){
-                //if res=true, prune the other direc search
+                //if res=true, prune the other dirs search
                 return;
             }
             

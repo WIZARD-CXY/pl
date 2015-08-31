@@ -30,7 +30,7 @@ public:
                 ListNode *temp=cur;
                 delete temp;
             }else{
-                //move both 2 pointers forward
+                //move pre pointers forward
                 pre=cur;
             }
             
