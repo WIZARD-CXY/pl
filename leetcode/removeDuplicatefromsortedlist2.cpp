@@ -16,7 +16,7 @@ public:
         
         while(cur){
             bool dup=false;
-            while(cur->next !=NULL && cur->val == cur->next->val){
+            while(cur->next!=NULL && cur->val == cur->next->val){
                 dup=true;
                 ListNode *temp=cur;
                 cur=cur->next;

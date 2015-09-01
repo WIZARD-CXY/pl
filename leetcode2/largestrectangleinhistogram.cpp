@@ -1,22 +1,23 @@
 class Solution {
 public:
     int largestRectangleArea(vector<int>& height) {
-        int res=0;
-        
-        int i=0;
-        
+        //ss just store
         stack<int> ss;
+        
+        //insert a dummy element to the height
         height.push_back(0);
+        int i=0;
+        int res=0;
         
         while(i<height.size()){
             if(ss.empty() || height[i]>=height[ss.top()]){
                 ss.push(i++);
             }else{
-                //met a smaller element
-                int h=ss.top();
+                //meet a lower rectangle
+                int idx=ss.top();
                 ss.pop();
-                //i-1 is right barrier index, s.top is left barrier index
-                int area=height[h]*(ss.empty()?i:i-1-ss.top());
+                // [ss.top()+1,i-1] range 
+                int area=height[idx]*(ss.empty()?i:i-1-ss.top());
                 res=max(res,area);
             }
         }

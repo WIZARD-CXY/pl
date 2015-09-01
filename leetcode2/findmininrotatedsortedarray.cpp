@@ -11,8 +11,7 @@ public:
                 mid=r;
                 break;
             }
-            
-            
+             
             int mid=l+((r-l)>>1);
             
             if(nums[mid]>=nums[l]){

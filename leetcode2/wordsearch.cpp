@@ -19,7 +19,7 @@ public:
     }
     
     bool dfs(vector<vector<char> > &board, int x, int y, vector<vector<bool> > &vis, string &word, int idx){
-        if(x<0 || x >=board.size() || y<0 || y>=board[0].size() || vis[x][y]){
+        if(x<0 || x>=board.size() || y<0 || y>=board[0].size() || vis[x][y]){
             return false;
         }
         

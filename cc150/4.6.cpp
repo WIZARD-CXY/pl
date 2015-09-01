@@ -1,4 +1,7 @@
 TreeNode* findInSucc(TreeNode *node){
+	if(node==NULL){
+		return NULL;
+	}
 	if(node->right){
 		findleftmost(root->right);
 	}else{
@@ -6,7 +9,7 @@ TreeNode* findInSucc(TreeNode *node){
 		// find upward until find the q is x's left child
         TreeNode *q=node;
 		TreeNode *x=node->parent;
-		while(x &&x->left!=q){
+		while(x && x->left!=q){
 			q=x;
 			x=x->parent;
 		}
