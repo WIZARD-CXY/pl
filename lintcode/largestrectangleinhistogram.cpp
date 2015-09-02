@@ -7,7 +7,7 @@ public:
         
         stack<int> ss;
         height.push_back(0);
-        
+
         while(i<height.size()){
             if(ss.empty() || height[i]>=height[ss.top()]){
                 ss.push(i++);
@@ -15,7 +15,8 @@ public:
                 //met a smaller element
                 int h=ss.top();
                 ss.pop();
-                //i-1 is right barrier index, s.top is left barrier index
+                // i-1 is right barrier index, s.top is left barrier index
+                // height[h] is the height that
                 int area=height[h]*(ss.empty()?i:i-1-ss.top());
                 res=max(res,area);
             }

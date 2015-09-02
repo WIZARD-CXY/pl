@@ -8,7 +8,7 @@ public:
      */
     void mergeSortedArray(int A[], int m, int B[], int n) {
         // write your code here
-        //merge from the tail to head of A
+        // merge from the tail to head of A
         int p=m-1;
         int q=n-1;
         int x=m+n-1;
