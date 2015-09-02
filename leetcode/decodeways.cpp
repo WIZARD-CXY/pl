@@ -20,7 +20,7 @@ public:
                 // if s[i-1] is '0' can't form with the previous answer
                 f[i]=0;
             }else{
-                //else first join the previus answer
+                // else first join the previous answer
                 f[i]=f[i-1];
             }
             // if the current one and previous one can join to 10<=num<=26, then f[i] can be joined with f[i-2]
