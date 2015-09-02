@@ -1,32 +1,11 @@
-#include<iostream>
-#include<string>
-#include<vector>
-#include<sstream>
-#include<algorithm>
-#include<limits.h>
-#include<stack>
-#include<queue>
-#include<set>
-#include<map>
-#include<unordered_map>
-#include<unordered_set>
-#include<cstring>
-using namespace std;
-void print(vector<int> &a){
-    for(auto aa : a){
-        cout<<aa<<" ";
-    }
-    cout<<endl;
-}
-
-
-
-struct ListNode {
-      int val;
-      ListNode *next;
-      ListNode(int x) : val(x), next(NULL) {}
-};
-
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
 class Solution {
 public:
     ListNode *reverseList(ListNode *head){
@@ -59,8 +38,9 @@ public:
         ListNode *lasttail=cur;
         ListNode *firsthead=cur->next;
         
-        //move forward the cur 
-        for(int i=0; i<(n-m+1); i++){
+        //move forward the cur to n
+        cur=dummy;
+        while(n--){
             cur=cur->next;
         }
         ListNode *nextfirst=cur->next;
@@ -74,16 +54,3 @@ public:
         return dummy->next;
     }
 };
-
-
-int main(){
-    Solution sln;
-    vector<int> ivec={1,2,2};
-    ListNode *a=new ListNode(3);
-    ListNode *b=new ListNode(5);
-    a->next=b;
-
-    sln.reverseBetween(a,1,2);
-
-}
-
