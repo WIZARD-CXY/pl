@@ -1,13 +1,14 @@
 class Solution {
 public:
-      bool isValid(string s){
-          if(s.size()==1 && s>="0" && s<="9") return true;
-          if(s.size()==2 && s>="10" && s<="99") return true;
-          if(s.size()==3 && s>="100" && s<="255") return true;
-          
-          return false;
-      }
+        bool isValid(string s){
+            if(s.size()==1 && s>="0" && s<="9") return true;
+            if(s.size()==2 && s>="10" && s<="99") return true;
+            if(s.size()==3 && s>="100" && s<="255") return true;
+              
+            return false;
+        }
         vector<string> res;
+
         vector<string> restoreIpAddresses(string s) {
             vector<string> ipSegs;
             
@@ -16,7 +17,7 @@ public:
             return res;
         }
         
-        // search in step-th step with start index 'start', 
+        // search in step-th step with start index 'start'
         void dfs(string &s, vector<string> &ipSegs, int start){
             int step=ipSegs.size();
             
