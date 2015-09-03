@@ -15,7 +15,7 @@ public:
         for(int i=1; i<nums.size(); i++){
             if(nums[i]==can1){
                 count1++;
-            }else if (nums[i] ==can2){
+            }else if (nums[i]==can2){
                 count2++;
             }else{
                 if(count1==0){
