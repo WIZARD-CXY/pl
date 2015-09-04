@@ -1,12 +1,10 @@
 //check duplicates
-
 void checkdups(int array[]){
 	bitset bs = new bitset(32000);
 
 	for(int i=0; i<array.size(), i++){
 		int num=array[i];
 		int idx=num-1;
-
 
 		if(bs.get(idx){
 			//already exist
@@ -25,8 +23,8 @@ struct BitSet{
 	}
 
 	bool get(int idx){
-		int wordnumber=(pos>>5); // /32
-		int bitnumber=(pos&0x1f); //%32
+		int wordnumber=(idx>>5); // /32
+		int bitnumber=(idx&0x1f); //%32
 		return (bitset[wordnumber] & (1<<bitnumber))!=0;
 	}
 

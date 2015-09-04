@@ -17,7 +17,7 @@ public:
         
         for(int i=0; i<s2.size(); i++){
             a[s2[i]-'a']--;
-        }k
+        }
         
         for(int i=0; i<26; i++){
             if(a[i]!=0){

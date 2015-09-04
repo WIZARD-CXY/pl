@@ -8,8 +8,6 @@ private:
     char *m_pchString;
     int m_nLength;
 
-    
- 
 public:
     MyString(char *pchString="")
     {

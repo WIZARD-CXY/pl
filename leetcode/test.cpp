@@ -19,8 +19,6 @@ void print(vector<int> &a){
     cout<<endl;
 }
 
-
-
 struct ListNode {
       int val;
       ListNode *next;
@@ -60,7 +58,8 @@ public:
         ListNode *firsthead=cur->next;
         
         //move forward the cur 
-        for(int i=0; i<(n-m+1); i++){
+        cur=dummy;
+        while(--n){
             cur=cur->next;
         }
         ListNode *nextfirst=cur->next;
@@ -84,6 +83,17 @@ int main(){
     a->next=b;
 
     sln.reverseBetween(a,1,2);
+    int aa[10]={0};
+    int index=14;
+
+    int wordnum=index/16;
+    int bitnum=index&0xf;
+    int val=2;
+
+    aa[wordnum]|=(val<<(bitnum<<1));
+
+
+    cout<<aa[wordnum]<<endl;
 
 }
 
