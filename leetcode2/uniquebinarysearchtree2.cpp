@@ -23,6 +23,7 @@ public:
         for(int i=start; i<=end; i++){
             // post order travesal
             // use i as root, build left and right subtree recursively
+            // then connect them
             vector<TreeNode*> left=helper(start,i-1);
             vector<TreeNode*> right=helper(i+1,end);
             
