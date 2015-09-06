@@ -17,21 +17,22 @@ public:
         ss.push(root);
         
         while(!ss.empty()){
-            TreeNode *p=ss.top();
+            TreeNode *tmp=ss.top();
             ss.pop();
             
-            if(p->right){
-                ss.push(p->right);
+            if(tmp->right){
+                ss.push(tmp->right);
             }
             
-            if(p->left){
-                ss.push(p->left);
+            if(tmp->left){
+                ss.push(tmp->left);
             }
-            
-            p->left=NULL;
+            // disable the tmp->left pointer
+            tmp->left=NULL;
             if(!ss.empty()){
-                p->right=ss.top();
+                tmp->right=ss.top();
             }
+            
         }
     }
 };

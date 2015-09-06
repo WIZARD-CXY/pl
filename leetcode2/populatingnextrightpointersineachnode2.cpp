@@ -9,32 +9,33 @@
 class Solution {
 public:
     void connect(TreeLinkNode *root) {
+        
         while(root){
-            //traversal from up to down util meet NULL pointer
-            TreeLinkNode *pre=NULL; //record the current level's pre-node
-            TreeLinkNode *next=NULL; // record the next level's first node
+            TreeLinkNode *pre=NULL; // root next level pre node
+            TreeLinkNode *nextlevelfirst=NULL; // next level first element
             
-            while(root){// travesal from left to right until root is NULL pointer
-                if(next==NULL){
-                    next=(root->left)?root->left:root->right;
+            while(root){
+                if(nextlevelfirst==NULL){
+                    nextlevelfirst=(root->left!=NULL)?root->left:root->right;//set the next level first
                 }
-    
+                
                 if(root->left){
-                    if(pre){
+                    if(pre!=NULL){
                         pre->next=root->left;
                     }
                     pre=root->left;
                 }
-                
                 if(root->right){
-                    if(pre){
+                    if(pre!=NULL){
                         pre->next=root->right;
                     }
                     pre=root->right;
                 }
                 root=root->next;
             }
-            root=next;
+           
+            //move down 
+            root=nextlevelfirst;
         }
     }
 };

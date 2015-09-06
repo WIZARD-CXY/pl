@@ -50,13 +50,11 @@ TreeNode* findleftmostnode(TreeNode *root){
 
 void convert(TreeNode* node, TreeNode* &last_node){
 	//use inorder traversal
-
 	if(node==NULL){
 		return;
 	}
 
-	//convert on the left sub tree
-	
+	//convert on the left sub tree	
 	convert(node->left,last_node);
 	//adjust the node's left
 	node->left=last_node;
@@ -67,9 +65,7 @@ void convert(TreeNode* node, TreeNode* &last_node){
 	last_node=node;
 
 	//convert on the right subtree
-	
 	convert(node->right,last_node);
-	
 }
 
 TreeNode* BST2List(TreeNode *root){

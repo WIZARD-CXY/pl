@@ -23,6 +23,7 @@ public:
         
         while(cur){
             //find the first node that value is larger than cur->val
+            //search from dummy
             ListNode* pre=dummy;
             while(pre->next && pre->next->val<=cur->val){
                 pre=pre->next;
