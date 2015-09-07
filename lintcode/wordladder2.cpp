@@ -10,7 +10,7 @@ public:
     vector<vector<string> > res;
     
     vector<vector<string>> findLadders(string start, string end, unordered_set<string> &dict) {
-        // write your code h
+        // write your code
         
         // one string may have many father
         unordered_map<string,vector<string> > father;
