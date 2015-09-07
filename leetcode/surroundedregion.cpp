@@ -1,8 +1,7 @@
-//reference http://m.blog.csdn.net/blog/maverick1990/28275973http://m.blog.csdn.net/blog/maverick1990/28275973
+//reference http://m.blog.csdn.net/blog/maverick1990/28275973
 class Solution {
 public:
     int n,m;
-    
     void bfs(vector<vector<char> > &board, int x, int y){
         board[x][y]='Y';
         
@@ -61,8 +60,7 @@ public:
             }
             if(board[n-1][i]=='O'){
                 bfs(board,n-1,i);
-            }
-            
+            } 
         }
         
         for(int i=0; i<n; i++){
