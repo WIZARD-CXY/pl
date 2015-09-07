@@ -32,7 +32,7 @@ public:
             UndirectedGraphNode* newnode = new UndirectedGraphNode(node->label);
             mm[node]=newnode;
             
-            //travesal its neighbour and update neighbour
+            //travese its neighbour and update neighbour
             for(auto neighbor : node->neighbors){
                 newnode->neighbors.push_back(helper(mm,neighbor));
             }
