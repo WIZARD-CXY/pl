@@ -5,13 +5,12 @@ public:
             return true;
         }
 
-        //dp[i] means 0~i-1 is breakable
+        //dp[i] means s[0..i] is breakable
         vector<bool> dp(s.size()+1,0);
         
         dp[0]=1;
         
         // find the max len of word in dict for pruning
-        
         int maxwordlen=INT_MIN;
         for(auto word : wordDict){
             maxwordlen=max(maxwordlen,int(word.size()));
@@ -19,8 +18,8 @@ public:
         
         for(int i=0; i<s.size(); i++){
             if(dp[i]){
-                //try string after i,varies in length
-                for (int len=1; i+len <s.size()+1; len++){
+                //try string after i, varies in length
+                for (int len=1; i+len<=s.size(); len++){
                     if(len>maxwordlen){
                         break;
                     }
