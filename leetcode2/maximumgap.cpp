@@ -43,6 +43,7 @@ public:
                 continue;
             }
             
+            // set the pre first
             if(first){
                 first=false;
                 pre=bucket[i][0];
