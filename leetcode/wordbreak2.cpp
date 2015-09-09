@@ -2,7 +2,7 @@ class Solution {
 public:
     void helper(vector<string> &res, string &s, int start, string str, unordered_set<string>& dict, vector<bool> &dp){
         string substr;
-        for(int len=1; start+len <s.size()+1; len++){
+        for(int len=1; start+len<=s.size(); len++){
             // assume s[0..start) is breakable
             if(dp[start+len] && dict.find(s.substr(start,len))!=dict.end()){
                 // if idx +len is breakable
@@ -30,7 +30,7 @@ public:
         for(int i=0; i<s.size(); i++){
             if(dp[i]){
                 //try string after
-                for (int len=1; i+len <s.size()+1; len++){
+                for (int len=1; i+len<=s.size(); len++){
                     if(wordDict.find(s.substr(i,len))!=wordDict.end()){
                         //string after is breakable
                         dp[i+len]=1;
@@ -40,8 +40,7 @@ public:
         }
         
         if(dp[s.size()]){
-            //if breakable, call helper
-            
+            //if breakable, call helper  
             helper(res,s,0,"",wordDict,dp);
         }
         
