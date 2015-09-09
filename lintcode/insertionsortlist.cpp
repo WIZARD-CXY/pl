@@ -22,7 +22,7 @@ public:
         ListNode *cur=head;
         
         while(cur){
-            //find the first node that value is larger than cur->val
+            //find the first node which is pre->next that value is larger than cur->val
             //search from dummy
             ListNode* pre=dummy;
             while(pre->next && pre->next->val<=cur->val){
@@ -32,7 +32,7 @@ public:
             // save the cur->next first
             ListNode *next=cur->next;
             
-            //pre is pre insertion point
+            // pre is pre insertion point
             cur->next=pre->next;
             pre->next=cur;
             
