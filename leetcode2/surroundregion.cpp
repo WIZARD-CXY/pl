@@ -55,6 +55,7 @@ public:
             //search the other four directions
             if(x>0 && board[x-1][y]=='O'){
                 qq.push(make_pair(x-1,y));
+                // mark it as visited
                 board[x-1][y]='Y';
             }
             

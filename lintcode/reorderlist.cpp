@@ -46,7 +46,7 @@ public:
         
         //splice two list into one
         ListNode *cur=head,*rcur=reversehead;
-        //cur list noe number is one less or equal to rcur list node number
+        //cur list number is one less or equal to rcur list node number
         while(cur->next){
             //save the next pointer first
             ListNode *next=cur->next;
@@ -60,8 +60,7 @@ public:
             rcur=rnext;
         }
         
-        cur->next=rcur;
-        
+        cur->next=rcur; 
     }
 };
 

@@ -49,7 +49,7 @@ public:
         
         //dp[i]=min(dp[k]+1,dp[k]+i-k) ( 0<=k<i)
         // dp[k]+1 means the s[k+1..i] is palindrome
-        // dp[k]+i-k means the worst cut, cut every char
+        // dp[k]+i-k means the worst case, cut every char
         
         for(int i=1; i<n; i++){
             if(isPa(s,0,i)){

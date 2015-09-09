@@ -6,7 +6,6 @@ public:
         int level=1;
         int count=1;//indicate the level-th level unvisited variable count
         
-        
         while(!path.empty() && dict.size()>0){
             string cur = path.front();
             path.pop();
