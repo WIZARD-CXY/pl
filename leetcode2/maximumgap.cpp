@@ -42,8 +42,7 @@ public:
             if(bucket[i].empty()){
                 continue;
             }
-            
-            // set the pre first
+            // set the pre first in case it is empty
             if(first){
                 first=false;
                 pre=bucket[i][0];
