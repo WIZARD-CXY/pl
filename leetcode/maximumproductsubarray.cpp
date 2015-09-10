@@ -6,7 +6,7 @@ public:
         }
         int maxtemp = A[0];
         int mintemp = A[0];
-        int res= A[0];
+        int res = A[0];
         
         for(int i=1; i<n; i++){
             int tempmax=A[i]*maxtemp;

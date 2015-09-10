@@ -25,7 +25,7 @@ public:
             return 0;
         }
         
-        //prepare a size n empty bucket
+        //prepare a size n+1 empty bucket
         vector<vector<int> > bucket(n+1);
         
         // notice the dist maybe zero ,using ceil to avoid this

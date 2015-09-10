@@ -20,7 +20,7 @@ public:
                 r=mid;
             }else if(A[mid]<A[mid+1]){
                 //peak is in the right side
-                l=mid;
+                l=mid+1;
             }else{
                 return mid;
             }

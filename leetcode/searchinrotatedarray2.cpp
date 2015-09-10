@@ -11,6 +11,7 @@ public:
             if(nums[mid]==target){
                 return true;
             }
+            //only compare with left element
             if(nums[l]<nums[mid]){
                 if(nums[l]<=target && target<nums[mid]){
                     r=mid;
