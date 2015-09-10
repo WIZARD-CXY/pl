@@ -21,8 +21,8 @@ public:
         //traversal every element to update minc and maxc
         
         for(int i=1; i<n; i++){
-            // not sure mintemp*nums[i] is small, it can be large
-            // not sure maxtemp*nums[i] is large, it can be small
+            // not sure mintemp*nums[i] is small, it can be large baecause negative
+            // not sure maxtemp*nums[i] is large, it can be small since negative
             int tempmin=min(mintemp*nums[i],maxtemp*nums[i]);
             int tempmax=max(mintemp*nums[i],maxtemp*nums[i]);
             
