@@ -5,7 +5,6 @@ public:
         int count=0;
         
         for(int i=0; i<num.size(); i++){
-            
             if(count == 0){
                 count=1;
                 candidate=num[i];

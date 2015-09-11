@@ -27,6 +27,7 @@ public:
         while(r){
             if(mm.find(r)!=mm.end()){
                 //r has been stored in the map
+                // will start recuring
                 res.insert(mm[r],1,'(');
                 res+=')';
                 break;
@@ -35,10 +36,8 @@ public:
             mm[r]=res.size();
             r=r*10;
             res+=to_string(r/d);
-            r=r%d;
-            
+            r=r%d;   
         }
-        
         
         return res;
         
