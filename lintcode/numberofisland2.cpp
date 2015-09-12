@@ -59,7 +59,6 @@ public:
                 
                 if(vis.find(newid)!=vis.end()){
                     //previous visited neighbour found;
-                    
                     int newfather=find(father,newid);
                     //find again in case the opidx father is changed during the update 
                     int opfather=find(father,opidx);
