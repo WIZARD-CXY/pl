@@ -1,4 +1,4 @@
-http://blog.csdn.net/linhuanmars/article/details/23236995
+//ref http://blog.csdn.net/linhuanmars/article/details/23236995
 class Solution {
 public:
     /**
