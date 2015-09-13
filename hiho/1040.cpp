@@ -49,7 +49,6 @@ bool checkRect(Line l[]){
 }
 
 int main(){
-	
 	int t;
 	cin>>t;
     
@@ -72,7 +71,6 @@ int main(){
         
 		//judge if exactly 4 points
 		if(pset.size()!=4){
-			cout<<"not 4 "<<pset.size()<<endl;
 			cout<<"NO"<<endl;
 			continue;
 		}
