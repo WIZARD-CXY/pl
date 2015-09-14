@@ -10,10 +10,11 @@ public:
                 mset.erase(nums[j++]);
             }
             //use long long here in case overflow
+            //get the lower_bound is enough
             auto st=mset.lower_bound((long long)nums[i]-t);
-            auto end=mset.upper_bound((long long)nums[i]+t);
-            for(auto it=st; it!=end; it++){
-                if(abs(nums[i]-*it)<=t){
+            
+            if(st!=mset.end()){
+                if(abs(nums[i]-*st)<=t){
                     return true;
                 }
             }
