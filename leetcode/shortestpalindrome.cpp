@@ -8,6 +8,7 @@ public:
         
         vector<int> prefix(t.size(),0);
         
+        //calculate the bmp next array
         for(int i = 1; i < t.size(); i++) {
             int j = prefix[i-1];
             while(j > 0 && t[i] != t[j])
