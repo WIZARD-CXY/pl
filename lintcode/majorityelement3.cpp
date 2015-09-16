@@ -16,7 +16,8 @@ public:
                 // nums i is already a can
                 mm[nums[i]]++;
             }else{
-                mm[nums[i]]=1;
+                // a little trick new element set to 2 in case following all minus one
+                mm[nums[i]]=2;
                 if(mm.size()==k){
                     //need reduce to k-1 candidate, every candicate count--
                     for(auto iter = mm.begin(); iter!=mm.end();){
@@ -36,6 +37,7 @@ public:
         
         //find the maxcount in the candidate map
         for(auto num : nums){
+            // if it is a can
             if(mm.find(num)!=mm.end()){
                 if(newmm.find(num)!=newmm.end()){
                     newmm[num]++;
