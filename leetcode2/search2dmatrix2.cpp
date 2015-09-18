@@ -5,6 +5,7 @@ public:
         if(m==0){
             return false;
         }
+        
         int n=matrix[0].size();
         if(n==0){
             return false;
@@ -12,8 +13,7 @@ public:
         
         int col=n-1;
         int row=0;
-        
-        while(col>=0 && row<m){
+        while(row<m && col >=0){
             if(matrix[row][col]==target){
                 return true;
             }else if(matrix[row][col]<target){
@@ -24,6 +24,5 @@ public:
         }
         
         return false;
-        
     }
 };
