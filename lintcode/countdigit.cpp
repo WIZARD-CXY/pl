@@ -5,7 +5,7 @@ public:
      * param n : As description.
      * return: How many k's between 0 and n.
      */
-     // caution if k is 0 this solution is infact wrong
+     // caution if k is 0 this solution is in fact wrong
     int digitCounts(int k, int n) {
         // write your code here
         int res=0;

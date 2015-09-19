@@ -2,6 +2,8 @@ class Solution {
 public:
     vector<int> diffWaysToCompute(string input) {
         int val=0,i=0;
+
+        // only number exist in the input base case
         for(; i<input.size(); i++){
             if(isdigit(input[i])){
                 val=val*10+input[i]-'0';
@@ -20,7 +22,7 @@ public:
         
         for(int k=0; k<input.size(); k++){
             if(!isdigit(input[k])){
-                //split using input[i]
+                //split using input[k]
                 leftres=diffWaysToCompute(input.substr(0,k));
                 rightres=diffWaysToCompute(input.substr(k+1));
                 
