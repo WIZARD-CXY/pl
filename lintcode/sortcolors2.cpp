@@ -7,7 +7,7 @@ public:
      */    
     void sortColors2(vector<int> &colors, int k) {
         // write your code here
-        //to avoid using extra space, you need to utilize the colors;
+        // to avoid using extra space, you need to utilize the colors;
         
         //3 2 2 1 4
 
@@ -42,8 +42,7 @@ public:
         int idx=colors.size()-1;
         for(int i=k-1; i>=0;i--){
             int cnt=-colors[i];
-            
-            
+             
             while(cnt--){
                 colors[idx--]=i+1;
             }
