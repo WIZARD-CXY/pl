@@ -11,8 +11,7 @@ public:
         bool dp[s1.size()+1][s1.size()][s1.size()];
         memset(dp,0,sizeof(dp));
         
-        //first initial the len 1
-        
+        //first initial the len 1 case
         for(int i=0; i<slen; i++){
             for(int j=0; j<slen; j++){
                 if(s1[i]==s2[j]){

@@ -37,8 +37,10 @@ int main(int argc, char* argv[]){
 
         vector<vector<double> > cur,next;
         
+        //first level 
         cur.resize(1);
         cur[0].resize(1,b*750.0);
+       
         for(int i=1; i<l; i++){
         	next.resize(i+1);
 
@@ -76,6 +78,7 @@ int main(int argc, char* argv[]){
     		    cnt++;
     			if(cnt==n){
     				printf("%.7lf\n",min(cur[i][j],250.0));
+                    return;
     			}
     		}	
         }
