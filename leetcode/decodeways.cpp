@@ -17,7 +17,7 @@ public:
         
         for(int i=2; i<=n; i++){
             if(s[i-1]=='0'){
-                // if s[i-1] is '0' can't form with the previous answer
+                // if s[i-1] is '0' can't use s[i-1] dependently
                 f[i]=0;
             }else{
                 // else first join the previous answer

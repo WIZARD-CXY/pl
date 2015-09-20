@@ -14,15 +14,16 @@ public:
         }
         
         // prepare a deque to maintain index of window
-        // qq.front() is the window current
+        // qq.front() is the window current max element index
         deque<int> qq;
         
         for(int i=0; i<nums.size(); i++){
             // moving window forward, need to delete pre window max
+            // which is qq.front
             if(!qq.empty() && qq.front()==i-k){
                 qq.pop_front();
             }
-            while(!qq.empty() && nums[qq.back()] <nums[i]){
+            while(!qq.empty() && nums[qq.back()] < nums[i]){
                 //remove all the smaller element
                 qq.pop_back();
             }
