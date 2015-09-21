@@ -22,9 +22,9 @@ public:
                 if(word1[i-1]==word2[j-1]){
                     dp[i][j]=dp[i-1][j-1];
                 }else{
-                    //dp[i-1][j] means delete word1[i][j]
-                    //dp[i][j-1] means add word2[i][j] 
-                    //dp[i-1][j-1] means replace word1[i][j] to word2[i][j]
+                    //dp[i-1][j] means to delete word1[i]
+                    //dp[i][j-1] means to add word2[j] 
+                    //dp[i-1][j-1] means to replace word1[i] to word2[j]
                     dp[i][j]=min(min(dp[i-1][j],dp[i][j-1]),dp[i-1][j-1])+1;
                 }
             }
