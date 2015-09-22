@@ -3,7 +3,7 @@ public:
     void reverseWords(string &s) {
         int i=0;
         
-        //remove leading and trailint space
+        //remove leading and trailing space
         while(i<s.size() && s[i] == ' '){
             i++;
         }
