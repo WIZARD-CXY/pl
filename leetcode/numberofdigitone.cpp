@@ -1,4 +1,4 @@
-class Solution {
+cpclass Solution {
 public:
     int countDigitOne(int n) {
         // count digit 1 numbers from right to left

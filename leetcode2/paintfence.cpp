@@ -8,7 +8,7 @@ public:
         if(n==1){
             return k;
         }
-        //start from n==2
+        // start from n==2
         // s means dp1 sequence which last two post is same color
         // d1 and d2 means dp2 sequence which last two post is different color
         // d1 denotes dp2[i-2], d2 denotes dp2[i-1]
