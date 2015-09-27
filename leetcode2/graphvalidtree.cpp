@@ -41,5 +41,4 @@ public:
         //only one connected componet
         return uset.cnt==1;
     }
-    
 };
