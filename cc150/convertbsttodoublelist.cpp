@@ -56,8 +56,10 @@ void convert(TreeNode* node, TreeNode* &last_node){
 
 	//convert on the left sub tree	
 	convert(node->left,last_node);
+	
 	//adjust the node's left
 	node->left=last_node;
+	//adjust the lastnode's right
 	if(last_node!=NULL){
 		last_node->right=node;
 	}
