@@ -6,6 +6,7 @@ public:
         }
 
         int a=root->val;
+        // the closet node value exists either in root or its left subtree or right subtree node 
         auto kid=(target<a)?root->left:root->right;
 
         if(kid==NULL){
@@ -13,6 +14,6 @@ public:
         }
 
         int b=closestValue(kid,target);
-        return abs(a-target) <abs(b-target)?a:b;
+        return abs(a-target)<abs(b-target)?a:b;
     }
 };

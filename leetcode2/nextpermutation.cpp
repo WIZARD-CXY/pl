@@ -9,7 +9,7 @@ public:
         }
         
         if(i<0){
-            // already the last permutation  all non-increasing order,just reverse
+            // already the last permutation all non-increasing order, just reverse
             reverse(nums.begin(),nums.end());
             return;
         }
