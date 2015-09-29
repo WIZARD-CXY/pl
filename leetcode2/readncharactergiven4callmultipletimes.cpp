@@ -39,5 +39,6 @@ public:
     }
     char buffer[4];
     int tmpidx=0; // indicate the buffer idx buf[idx] to buf[tmplen] is unreaded last time.
-    int tmplen=0; //tmplen is almost 4 , except we dont't get a 4 byte read last time
+    int tmplen=0; // tmplen is mostly 4, except we dont't get a 4 byte read last time and leave some chars in buffer
+                  // if will be consumed by next read
 };
