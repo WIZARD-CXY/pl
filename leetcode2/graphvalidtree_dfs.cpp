@@ -26,6 +26,7 @@ public:
             vis[tmp]=1;
             
             for(auto neighbour : G[tmp]){
+                //don't visit back to neighbour
                 if(parent[tmp]!=neighbour){
                     if(vis[neighbour]==1){
                         //exist cycle
