@@ -13,7 +13,7 @@ public:
         }
         
         while(l<r){
-            int mid=(l+r)>>1;
+            int mid=l+((r-l)>>1);
             
             if(A[mid]<A[mid-1]){
                 //peak is in the left side
