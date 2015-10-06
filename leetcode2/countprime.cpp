@@ -5,6 +5,7 @@ public:
         
         for(int i=2; i<sqrt(n); i++){
             if(!vis[i]){
+                // j*i may overflow when n is large near INT_MAX
                 for(int j=i; j*i<n; j++){
                    vis[j*i]=1;
                 }

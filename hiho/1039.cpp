@@ -14,7 +14,6 @@ int process(string s){
 		//s reduced to tmp
 
 		string tmp="";
-	    cout<<"--"<<s<<endl;
 
 		int i=0,j=1;
 		for(; j<s.size(); j++){

@@ -15,11 +15,12 @@ int main(){
 	for(int i=0; i<t; i++){
 		int num;
 		cin>>num;
+
 		if(num==0){
 			cout<<"NO"<<endl;
 			continue;
 		}
-        
+
         string s;
 		cin>>s;
 
@@ -47,7 +48,9 @@ int main(){
 		vnode.push_back(newnode);
 
         bool flag=false;
-		for(int i=0; i<vnode.size()-2; i++){
+        // cast the vnode.size() to int in case unsigned and signed compare and compute
+        // error
+		for(int i=0; i<int(vnode.size())-2; i++){
 			if(vnode[i].c+1==vnode[i+1].c &&
 				vnode[i+1].c+1==vnode[i+2].c &&
 				vnode[i].cnt>=vnode[i+1].cnt &&
