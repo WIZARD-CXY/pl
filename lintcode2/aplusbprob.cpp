@@ -10,6 +10,7 @@ public:
         while(b!=0){
             //b works as carry
             int carry = a&b;
+            // a works as temp result
             a=a^b;
             b=carry<<1;
         }

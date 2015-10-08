@@ -29,7 +29,6 @@ public:
         unordered_map<int,int> mm; //record remainer's first occur pos key is remainer, and value is pos in res
         
         while(r){
-            cout<<r<<" "<<res<<" ";
             if(mm.find(r)!=mm.end()){
                 //the same r recur
                 res.insert(mm[r],1,'(');
