@@ -20,7 +20,6 @@ public:
         helper(path,cur+1,nums);
         
         //select the cur
-        
         path.push_back(nums[cur]);
         helper(path,cur+1,nums);
         path.pop_back();
