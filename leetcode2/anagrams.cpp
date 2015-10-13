@@ -10,8 +10,7 @@ public:
             string signature=str;
             sort(signature.begin(),signature.end());
             
-            mm[signature].push_back(str);
-            
+            mm[signature].push_back(str);     
         }
         
         for(auto it : mm){

@@ -27,8 +27,7 @@ public:
         ListNode *pre=dummy;
         priority_queue<ListNode*, vector<ListNode*>, cmp> pq;
         
-        // insert not-null head into pq;
-        
+        // insert not-null head into pq; 
         for(auto node : lists){
             if(node){
                 pq.push(node);
