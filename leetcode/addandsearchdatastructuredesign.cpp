@@ -59,6 +59,7 @@ public:
                 p=p->child[k];
             }else if (p && word[i]=='.'){
                 int j;
+                //meet 
                 for(j=0; j<26; j++){
                     if(helper(word.substr(i+1),p->child[j])){
                         return true;

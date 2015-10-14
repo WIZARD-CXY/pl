@@ -26,7 +26,7 @@ public:
                 }
             }
             
-             if(mm2.find(tmp)==mm2.end()){
+            if(mm2.find(tmp)==mm2.end()){
                 mm2[tmp]=pattern[idx];
             }else{
                 if(mm2[tmp]!=pattern[idx]){
