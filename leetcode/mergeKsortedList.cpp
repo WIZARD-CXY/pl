@@ -6,44 +6,41 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+ 
+ // time complexity O(klogN) N is total number of ListNode 
+ // space complexity is O(k)
 class Solution {
 public:
-    struct cmp{
-        bool operator()(const ListNode *a, const ListNode *b) const{
-            return a->val > b->val;
-        }
-    };
     ListNode* mergeKLists(vector<ListNode*>& lists) {
-        if(lists.size()==0){
-            return NULL;
-        }
+        struct cmp{
+            bool operator()(const ListNode* a, const ListNode *b){
+                return a->val>b->val;
+            }
+        };
         
-        priority_queue<ListNode*, vector<ListNode*>, cmp> pq;
+        priority_queue<ListNode*,vector<ListNode*>, cmp> pq;
         
-        ListNode *dummy = new ListNode(-1),*pre=dummy;
-        
-        // push every list head into pq
-        for(int i=0; i< lists.size(); i++){
-            if(lists[i]){
-                pq.push(lists[i]);
+        for(auto &l :lists){
+            if(l){
+                pq.push(l);
             }
         }
+        
+        ListNode *dummy = new ListNode(-1);
+        ListNode *pre=dummy;
         
         while(!pq.empty()){
-            ListNode *node = pq.top();
+            ListNode *tmp=pq.top();
             pq.pop();
             
-            //push the next if not NULL
-            if(node->next){
-                pq.push(node->next);
+            if(tmp->next){
+                pq.push(tmp->next);
             }
-            pre->next=node;
-            pre=node;
+            
+            pre->next=tmp;
+            pre=pre->next;
         }
         
-        pre->next=NULL;
         return dummy->next;
-        
     }
-    
 };

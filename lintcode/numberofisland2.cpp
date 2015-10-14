@@ -29,7 +29,6 @@ public:
         unordered_map<int,int> father;
         unordered_map<int,bool> vis;
         
-        
         for(auto op : operators){
             //set itself as father
             father[op.x*m+op.y]=op.x*m+op.y;

@@ -26,10 +26,10 @@ public:
                 }
                 
                 if(2*j+2>maxlen){
-                maxlen=2*j+2;
-                start=i-j;
-                end=i+j+1;
-            }
+                    maxlen=2*j+2;
+                    start=i-j;
+                    end=i+j+1;
+                }
             }
             
             
