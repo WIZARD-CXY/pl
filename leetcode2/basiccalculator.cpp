@@ -15,6 +15,7 @@ public:
     int calculate(string s) {
         stack<int> stk_val;
         stack<char> stk_op;
+
         int res = 0, tmp;
         for (int i = 0; i <= s.length(); ++i) {
             //操作数
@@ -34,9 +35,13 @@ public:
                     stk_val.top() = calc(stk_val.top(), tmp, stk_op.top());
                     stk_op.pop();
                 }
-                if (i == s.length()) break;
-                else if (s[i] == ')') stk_op.pop();
-                else stk_op.push(s[i]);
+                if (i == s.length()) {
+                    break;
+                } else if (s[i] == ')') {
+                    stk_op.pop();
+                }else{
+                    stk_op.push(s[i]);
+                } 
             } else if (s[i] == '(') {
                 stk_op.push(s[i]);
             }
