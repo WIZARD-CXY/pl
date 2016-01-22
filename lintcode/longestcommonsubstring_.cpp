@@ -9,8 +9,8 @@ public:
         int alen=A.size();
         int blen=B.size();
         
-        // dp[i][j] means A[0..i) and B[0,j)'s longest common substring length
-        // includes the A[i-1] and B[j-1] 
+        // dp[i][j] means the length of longest common substring of A[0..i) which must be ended with A[i-1] and B[0..j)'s which must be ended with B[j-1].
+        // below is using 1-dim dp array 
         vector<int> dp(blen+1,0);
         
         int res=0;
