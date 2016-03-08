@@ -50,19 +50,16 @@ public:
         int havecopied=0;
         int i=0;
         while(i<pages.size()){
-            if(havecopied+pages[i]<=x){
-                //continue using one man
-                havecopied+=pages[i];
-                i++;
-            }else if(pages[i]<=x){
-                //can't copy it using one men
-                //use another man
-                cnt++;
-                havecopied=0;
-            }else{
-                //pages[i]>x, just can't do it
+            if(pages[i] > x) {
                 return false;
             }
+            if(havecopied+pages[i] > x) {
+                // use another man to copy
+                cnt++;
+                havecopied = 0;
+            }
+            havecopied+=pages[i];
+            i++;
         }
         //left some pages to copy
         if(havecopied>0){
