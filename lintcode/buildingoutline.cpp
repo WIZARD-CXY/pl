@@ -55,3 +55,60 @@ public:
         
     }
 };
+
+// solution 2: a clean and neat one
+/*
+We adopt multiset as a min-heap, hence we could 
+keep track of the current height. whenever it changes, 
+we update the result.
+*/
+
+vector<vector<int> > buildingOutline(vector<vector<int> > &buildings) {
+        // write your code here
+        vector<vector<int>> ans;
+        if(buildings.size() == 0) {
+            return ans;
+        }
+        // borrow the idea from skyline problem and
+        // deal with the output format if neccessary
+        
+        vector<pair<int, int>> heights;
+        for(auto b: buildings) {
+            heights.push_back(make_pair(b[0], -b[2]));
+            heights.push_back(make_pair(b[1], b[2]));
+        }
+        
+        sort(heights.begin(), heights.end());
+        
+        vector<pair<int,int>> res;
+        
+        multiset<int> set;
+        set.insert(0);
+        int prev = 0;
+        
+        int start = -1;
+
+        for(auto h:heights) {
+            // start point
+            if(h.second < 0) {
+                set.insert(-h.second);
+            }
+            else {
+                // end point
+                set.erase(set.find(h.second));
+            }
+            
+            int cur = *set.rbegin();
+            if(prev != cur) {
+            	if(prev > 0) {
+            		ans.push_back(vector<int>{start, h.first, prev});
+            	}
+            	start = h.first;
+            	prev = cur;
+            }
+            
+        }
+       
+       	
+        return ans;
+    }
