@@ -10,7 +10,7 @@ public:
             return {lower,upper-1};
         }
     }
-    
+    // returns the first index of element which larger or equal to target in nums array
     int lower_bound(vector<int> &nums, int target){
         int l=0;
         int r=nums.size();
@@ -18,6 +18,7 @@ public:
         while(l<r){
             int mid=l+((r-l)>>1);
             
+            // notice >=
             if(nums[mid]>=target){
                 r=mid;
             }else{
@@ -27,14 +28,14 @@ public:
         
         return l;
     }
-    
+    //returns the first index of element which is larger than target in nums
     int upper_bound(vector<int> &nums, int target){
         int l=0;
         int r=nums.size();
         
         while(l<r){
             int mid=l+((r-l)>>1);
-            
+            // notice > 
             if(nums[mid]>target){
                 r=mid;
             }else{
