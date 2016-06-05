@@ -17,8 +17,9 @@ public:
             if(leftdigit!=rightdigit){
                 return false;
             }
-            
+            // remove the leftdigit first with x%base then remove rightdigit using /10
             x=x%base/10;
+            // re-base
             base/=100;
         }
         return true;
