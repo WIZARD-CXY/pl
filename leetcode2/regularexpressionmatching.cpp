@@ -1,4 +1,4 @@
- class Solution {
+class Solution {
 public:
     bool isMatch(string s, string p) {
         if(p.size()==0) return s.size()==0;
