@@ -17,13 +17,17 @@ public:
             return findKth(it2,n,it1,m,k);
         }
         
+        // base case 1 
+        // m==0
         if(m==0){
             return *(it2+k-1);
         }
+        // base case 2
+        // k==1
         if(k==1){
             return min(*it1,*it2);
         }
-        
+        // can't let mid1 equal 0, otherwise *(it1+mid1-1) will make no sense
         int mid1=min(k/2,m);
         int mid2=k-mid1;
         

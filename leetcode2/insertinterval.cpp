@@ -23,7 +23,7 @@ public:
                 res.push_back(intervals[i]);
             }else{
                 // overlap with 4 condition
-                // enlarge newInterval
+                // enlarge newInterval, enter the next iteration
                 // new is [1 3] intervals[i] is [2 4]
                 // new is [2 3] intervals[i] is [1 4]
                 // new is [1 4] intervals[i] is [2 3]
