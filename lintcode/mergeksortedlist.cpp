@@ -25,6 +25,7 @@ public:
         // write your code here
         ListNode *dummy = new ListNode(-1);
         ListNode *pre=dummy;
+        // make it a min-heap
         priority_queue<ListNode*, vector<ListNode*>, cmp> pq;
         
         // insert not-null head into pq; 
@@ -34,7 +35,7 @@ public:
             }
         }
         
-        // pop back
+        // pop the min and push its successor it exists
         while(!pq.empty()){
             ListNode *tmp=pq.top();
             pq.pop();
