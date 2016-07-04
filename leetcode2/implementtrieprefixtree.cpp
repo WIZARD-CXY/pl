@@ -6,7 +6,7 @@ public:
         memset(child,NULL,sizeof(child));
     }
     bool isWord;
-    TrieNode *child[26];
+    TrieNode* child[26];
 };
 
 class Trie {
