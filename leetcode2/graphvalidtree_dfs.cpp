@@ -26,7 +26,7 @@ public:
             vis[tmp]=1;
             
             for(auto neighbour : G[tmp]){
-                //don't visit back to neighbour
+                //don't visit back to the parent node
                 if(parent[tmp]!=neighbour){
                     if(vis[neighbour]==1){
                         //exist cycle
@@ -43,7 +43,7 @@ public:
         //all visited
         for(int i=0; i<n; i++){
             if(!vis[i]){
-                cout<<i<<endl;
+                //cout<<i<<endl;
                 return false;
             }
         }

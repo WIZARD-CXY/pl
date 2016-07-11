@@ -38,7 +38,7 @@ public:
             }
         }
         
-        //only one connected componet
+        //only one connected component
         return uset.cnt==1;
     }
 };
