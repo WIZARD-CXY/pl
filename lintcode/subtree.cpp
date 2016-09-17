@@ -26,18 +26,11 @@ public:
             return false;
         }
         
-        bool res=false;
-        if(T1->val == T2->val){
-            res=helper(T1, T2);
-        }
-        
-        // T1->val != T2->val check the T1's left sub-tree or right subtree if match
-        if(!res){
-            res = isSubtree(T1->left, T2) || isSubtree(T1->right,T2);
-        }
-        return res;
+        return helper(T1,T2) || isSubtree(T1->left, T2) || isSubtree(T1->right,T2);
+       
     }
     
+    // helper is a direct match function to decide whether T1 or T2 are completely equal
     bool helper(TreeNode *T1, TreeNode *T2){
         if(T1==NULL && T2==NULL){
             return true;
