@@ -30,7 +30,7 @@ public:
                     t[i++]=A[p++];
                 }else{
                     // when use a right element to fill in the t,
-                    // the A[q] is smaller than A[x] where x is [p,m)
+                    // the A[q] is smaller than all the A[x] where x is [p,m)
                     // so in terms of A[q], there is m-p reverse pairs
                     res+=(m-p);
                     t[i++]=A[q++];
