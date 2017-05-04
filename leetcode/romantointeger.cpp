@@ -18,6 +18,7 @@ public:
         if(s.empty()){
             return 0;
         }
+        
         int sum=char2int(s.back());
         
         for(int i=s.size()-1; i>=1; i--){

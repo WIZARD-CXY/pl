@@ -18,7 +18,7 @@ public:
      */
     ListNode *insertionSortList(ListNode *head) {
         // write your code here
-        ListNode *dummy= new ListNode(-1);
+        ListNode *dummy=new ListNode(-1);
         ListNode *cur=head;
         
         while(cur){
@@ -32,7 +32,7 @@ public:
             // save the cur->next first
             ListNode *next=cur->next;
             
-            // pre is pre insertion point
+            // pre is previous insertion point of cur
             cur->next=pre->next;
             pre->next=cur;
             
