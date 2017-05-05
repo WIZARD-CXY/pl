@@ -15,12 +15,12 @@ public:
         vector<vector<int>> dp(m+1, vector<int>(n+1,0));
         
         for(int j=0; j<=n; j++){
-            // from zero len word1 to word2(len==j) add new element
+            // from word1(len==0) to word2(len==j) add new element
             dp[0][j]=j;
         }
         
         for(int i=0; i<=m; i++){
-            // from i len word1 to word2(len==0) delete element
+            // from word1(len==i) to word2(len==0) delete element
             dp[i][0]=i;
         }
         
