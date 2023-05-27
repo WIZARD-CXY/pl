@@ -25,7 +25,6 @@ public:
             }
             sum=sum*10+str[i]-'0';
             i++;
-            
         }
         return sum*sign;
         

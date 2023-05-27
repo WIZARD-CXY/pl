@@ -31,8 +31,6 @@ public:
                     end=i+j+1;
                 }
             }
-            
-            
         }
         
         return s.substr(start,end-start+1);
